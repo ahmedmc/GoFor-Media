@@ -35,10 +35,10 @@
             
              menuDrop()
              
-             var arrows = "<img src='more.png' alt='arrows' class='more'>";
+             var plus = "<img src='plus.png' alt='plus' class='more'>";
             
            $('article').children('h2').each(function(i, e){
-           $(e).append(arrows);
+           $(e).append(plus);
            });
            
             
