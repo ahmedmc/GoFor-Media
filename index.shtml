@@ -16,16 +16,13 @@
             if ($(window).width() <= 400){
                 $("#navbar").hide();
                 $(".menu-toggle").show();
-                $(".menu-toggle").click(function(){
-                    console.log("hello");
-                    $(".menu").toggle();
-                });
             };
             
             if ($(window).width() > 400){
                 console.log('right');
                 $("#navbar").show();
-                $(".menu-toggle, .menu").hide()
+                $(".menu-toggle").hide();
+                $(".menu").hide().removeClass('open');
             } 
         };
         
@@ -47,6 +44,25 @@
             $('h2').click(function() {
                $(this).nextUntil('h2').toggle(); 
             })
+            
+            
+            $('.menu-toggle').click(function(event){
+                event.preventDefault();
+                
+                // create menu variables
+                var slideoutMenu = $('.menu');
+                var slideoutMenuWidth = slideoutMenu.width();
+                // slide menu
+                if (slideoutMenu.hasClass("open")) {
+                    slideoutMenu.animate({ left: 0 }, 200);
+                } else {
+                    slideoutMenu.animate({
+                        left: -slideoutMenuWidth
+                    }, 200); }
+                    
+                    // toggle open class
+                    slideoutMenu.toggleClass("open");
+                });
         });
     </script>
 
@@ -657,31 +673,6 @@
             <!--#include file="inc/footer.inc" -->
 
         </footer>
-
-        <script type="text/javascript">
-            $(document).ready(function () {
-    $('.menu-toggle').on('click', function(event){
-    	event.preventDefault();
-    	// create menu variables
-    	var slideoutMenu = $('.menu');
-    	var slideoutMenuWidth = $('.menu').width();
-    	
-    	// toggle open class
-    	slideoutMenu.toggleClass("open");
-    	
-    	// slide menu
-    	if (slideoutMenu.hasClass("open")) {
-	    	slideoutMenu.animate({
-		    	left: "0px"
-	    	});	
-    	} else {
-	    	slideoutMenu.animate({
-		    	left: -slideoutMenuWidth
-	    	}, 200);	
-    	}
-    });
-});
-        </script>
     </div>
     <!-------/Container-------->
 </body>
