@@ -29,7 +29,7 @@
                                 </ul>
                             </li>
                             <li><a href='contact.php'>Contact</a></li>
-                            <li><a href='#'>Blog</a></li>
+                            <li><a href='http://goformedia.tumblr.com/'>Blog</a></li>
                             <li>
 
                                 <script type="text/java_script">
