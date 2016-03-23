@@ -1,4 +1,4 @@
-<h3>Menu <a href="#" class="menu-toggle">&times;</a></h3>
+<h3 class="menu-toggle>Menu</h3>
                     <br/>
                     <ul>
                         <li><a href="#">Home </a></li>

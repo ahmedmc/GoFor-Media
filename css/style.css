@@ -14,8 +14,7 @@ color:#fff;}
 /* --------------------- Navigation*/ 
 .menu{
 	position:fixed;
-	width:200px;
-	left:-200px; 
+	width:200px; 
 	height:100%;
 	background: #333;
 	color:#fff;
