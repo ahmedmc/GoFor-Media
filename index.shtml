@@ -30,6 +30,8 @@
         
         $(document).ready(function(){
             
+          
+            
              menuDrop()
              
              var plus = "<img src='plus.png' alt='plus' class='more'>";
@@ -54,10 +56,10 @@
                 var slideoutMenuWidth = slideoutMenu.width();
                 // slide menu
                 if (slideoutMenu.hasClass("open")) {
-                    slideoutMenu.animate({ left: 0 }, 200);
+                    slideoutMenu.animate({ left: -slideoutMenuWidth }, 200);
                 } else {
                     slideoutMenu.animate({
-                        left: -slideoutMenuWidth
+                        left: 0
                     }, 200); }
                     
                     // toggle open class
