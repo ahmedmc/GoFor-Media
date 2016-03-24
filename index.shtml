@@ -590,7 +590,7 @@
         </div>
         <!-- /Row -->
         <footer class="twelve columns">
-            <!-- #include file="inc/footer.inc" -->
+            <!--#include file="inc/footer.inc" -->
         </footer>
     </div>
     <!-- ========= Container =========== -->
