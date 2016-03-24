@@ -16,12 +16,12 @@
         function menuDrop(){ // menuDrop() is a function that applies responsive techniques to the navigation system
                                 //based on viewport/ window sizes */
             if ($(window).width() <= 400){
-                $("#navbar").hide();
+                $("#cssmenu, .active").hide();
                 $(".menu-toggle,.menu").show();
             };
             
             if ($(window).width() > 400){
-                $("#navbar").show();
+                $("#cssmenu").show();
                 $(".menu-toggle,.menu").hide();
             } 
         };
