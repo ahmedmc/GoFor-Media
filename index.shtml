@@ -66,13 +66,17 @@
                     slideoutMenu.toggleClass("open");
                 });
         });
-   
-        function update(jscolor) {
-            // 'jscolor' instance can be used as a string
-            document.getElementById('body')
-                .style.backgroundColor = '#' + jscolor
-        }
     </script>
+    <script>
+        +        function update(jscolor) {
+ +            // 'jscolor' instance can be used as a string
+ +            document.getElementById('body')
+ +                .style.backgroundColor = '#' + jscolor
+ +        }
+ +
+ +
+    </script>
+
     <script>
         function setTextColor(picker) {
             document.getElementsByTagName('article')[0].style.color = '#' + picker.toString()
