@@ -9,34 +9,29 @@
 
     <script src="http://code.jquery.com/jquery-1.12.1.min.js"></script>
     <script>
-        
-        
-        
-        function menuDrop(){ /* menuDrop() is a function that applies responsive techniques to the navigation system
-                                based on viewport/ window sizes */
+        function menuDrop(){ // menuDrop() is a function that applies responsive techniques to the navigation system
+                              // based on viewport/ window sizes 
             if ($(window).width() <= 400){
                 $("#navbar").hide();
-                $(".menu-toggle").show();
+                $(".menu-toggle, .menu").show();
             };
             
             if ($(window).width() > 400){
-                console.log('right');
                 $("#navbar").show();
                 $(".menu-toggle").hide();
-                $(".menu").hide().removeClass('open');
+                $(".menu").hide();
             } 
         };
         
-        $(window).resize(menuDrop);
-        
         $(document).ready(function(){
             
+           $(window).resize(menuDrop);
           
-            
-             menuDrop()
+           menuDrop()
              
            var plus = "<img src='images/plus.png' alt='plus' class='more'>";
             
+            //For every h2 element int the conatainer a plus sign is appeneded
            $('article').children('h2').each(function(i, e){
            $(e).append(plus);
            });
@@ -46,26 +41,30 @@
             $('.ten').children('article').children(':not(h1,p:first-of-type,h2,plus)').hide(); 
             $('h2').click(function() { 
                $(this).nextUntil('h2').toggle(); 
-            })
+            }) 
             
             
+           //Slides the vertical menu out when burger button clicked
             $('.menu-toggle').click(function(event){
                 event.preventDefault();
                 
                 // create menu variables
                 var slideoutMenu = $('.menu');
                 var slideoutMenuWidth = slideoutMenu.width();
+                
                 // slide menu
                 if (slideoutMenu.hasClass("open")) {
                     slideoutMenu.animate({ left: -slideoutMenuWidth }, 200);
                 } else {
                     slideoutMenu.animate({
                         left: 0
-                    }, 200); }
+                    }, 200); 
+                }
                     
-                    // toggle open class
-                    slideoutMenu.toggleClass("open");
-                });
+                // toggle open class
+                slideoutMenu.toggleClass("open");
+             });
+               
         });
     </script>
 
@@ -75,7 +74,7 @@
 
 
     <header class="twelve columns">
-        <a href="#" class="menu-toggle"><img src="images/burgerm.png" /></a>
+        <img src="images/burgerm.png" class="menu-toggle" />
         <div id="date">
             <!--#config timefmt="%A, %B %e, %Y." -->
             Welcome! Today is
@@ -103,8 +102,8 @@
             <div class="ten columns">
 
                 <nav id="navbar">
-                    <!-- Start horizontal navigation --> 
-                   <!--#include file="inc/horizontal_nav.inc"-->
+                    <!-- Start horizontal navigation -->
+                    <!--#include file="inc/horizontal_nav.inc"-->
                 </nav>
 
                 <article>
