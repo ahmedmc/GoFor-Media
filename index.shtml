@@ -3,24 +3,24 @@
 
 <head>
     <title>GoFor Media- A group project</title>
-    <meta name="description" content="COMP1950: A site wide redesign focusing on access to information and greater connectivity " />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta charset="utf-8">
+    <meta name="description" content="COMP1950: A site wide redesign focusing on access to information and greater connectivity "
+    />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/grid.css" />
-
-    <script src="http://code.jquery.com/jquery-1.12.1.min.js"></script>
+    <link rel="stylesheet" href="css/print.css" media="print" />
+    <script src="js/jquery-1.12.1.min.js"></script>
+    <script src="js/jscolor.js"></script>
     <script>
-        
-        
-        
-        function menuDrop(){ /* menuDrop() is a function that applies responsive techniques to the navigation system
-                                based on viewport/ window sizes */
+        function menuDrop(){ // menuDrop() is a function that applies responsive techniques to the navigation system
+                                //based on viewport/ window sizes */
             if ($(window).width() <= 400){
                 $("#navbar").hide();
                 $(".menu-toggle,.menu").show();
             };
             
             if ($(window).width() > 400){
-                console.log('right');
                 $("#navbar").show();
                 $(".menu-toggle,.menu").hide();
             } 
@@ -66,27 +66,630 @@
                     slideoutMenu.toggleClass("open");
                 });
         });
+   
+        function update(jscolor) {
+            // 'jscolor' instance can be used as a string
+            document.getElementById('body')
+                .style.backgroundColor = '#' + jscolor
+        }
     </script>
-
+    <script>
+        function setTextColor(picker) {
+            document.getElementsByTagName('article')[0].style.color = '#' + picker.toString()
+        }
+    </script>
+    <script>
+        $(function() {
+            $("#tfq2b")
+                .click(function() {
+                    if ($("#tfq2b")
+                        .val() == "Search our website") {
+                        $("#tfq2b")
+                            .val("");
+                    }
+                });
+        });
+    </script>
 </head>
 
-<body>
-
+<body id="body" style="text-color:black;">
 
     <header class="twelve columns">
-        <a href="#" class="menu-toggle"><img src="images/burgerm.png" /></a>
+        <img src="images/burgerm.png" class="menu-toggle" alt="Menu" />
         <div id="date">
             <!--#config timefmt="%A, %B %e, %Y." -->
             Welcome! Today is
             <!--#echo var="DATE_LOCAL" -->
         </div>
+        <div class="ten columns">
+
+            <nav id="navbar">
+                <!-- Start horizontal navigation -->
+                <!--#include file="inc/horizontal_nav.inc"-->
+            </nav>
+
+            <article>
+                <h1 class="page-title">Week 1</h1>
+                <p>Week 1: Getting started, introductions, standards, tools</p>
+
+                <h2 id="agenda">Agenda</h2>
+
+                <ul>
+                    <li>Orientation</li>
+                    <li>Introductions</li>
+                    <li>Standards</li>
+                    <li>Tools</li>
+                    <li>Student Pages setup</li>
+                    <li>Homework</li>
+                </ul>
+
+                <h2 id="orientation">Orientation</h2>
+
+                <p>Learn about the course to help you determine if this is the right class for you. Take a look at the
+                    <a href="/outline">course outline</a>
+                </p>
+
+                <h3 id="outline">Outline</h3>
+
+                <p>A week-by-week breakdown of what we will learn, homework and other deliverables</p>
+
+                <h3 id="student-pages">Student Pages</h3>
+
+                <p>Each student will get personal webspace. This is not a continuation of your COMP1850 site (if you had one).
+                    This site is primarily for you to house your exercises, assignments, group work and more. Make it a site
+                    that is usable and functional.</p>
+
+                <p>Each student will be assigned web space for their homework and other files. All work performed on lab computers
+                    should be saved to personal files.</p>
+
+                <p>Your instructor will create webspaces for each student at the end of the first lecture. Please be present
+                    for this, as you will be entering your own password.</p>
+
+                <p><a href="/studentpages">More information on Student Pages</a>.</p>
+
+                <h2 id="tools">Tools</h2>
+
+                <p>Today, there are a lot of tools in Web Development, many of them are free with a few that have a cost that
+                    needs to be judged by how much you will use the tool.</p>
+
+                <h3 id="your-tools">Your Tools</h3>
+
+                <p>What kind of tools are you using to do your web development? These can be anything from editors to image
+                    editors, services for testing browser deployments, language linters, and more.</p>
+
+                <p>Some of the tools used by web developers…</p>
+
+                <h4 id="editors">Editors</h4>
+
+                <ul>
+                    <li><a href="https://notepad-plus-plus.org">Notepad++</a> - Text Editor (Win) * installed in BCIT lab computers
+                        *
+                    </li>
+                    <li><a href="http://www.sublimetext.com">Sublime Text</a> - Text Editor (Mac/Win)</li>
+                    <li><a href="https://panic.com/coda/">Coda</a> - Web Dev IDE (Mac)</li>
+                    <li><a href="http://www.adobe.com/ca/products/dreamweaver.html">Dreamweaver</a> - Web Dev IDE (Mac/Win)</li>
+                    <li><a href="http://www.barebones.com/products/textwrangler/">Text Wrangler</a> - Text Editor (Mac)</li>
+                    <li><a href="http://www.htmlkit.com">HTMLKit</a> - Web Dev IDE (Win)</li>
+                </ul>
+
+                <h4 id="ftp">FTP</h4>
+
+                <ul>
+                    <li><a href="https://filezilla-project.org">Filezilla</a> - FTP tool (Win) * installed in BCIT lab computers
+                        *
+                    </li>
+                    <li><a href="https://cyberduck.io/?l=en">Cyberduck FTP</a> - FTP tool (Mac)</li>
+                </ul>
+
+                <p>There are so many more! Maybe you use something not on the above list.</p>
+
+                <blockquote>
+                    <p>What are your tools?</p>
+                </blockquote>
+
+                <h3 id="browser-based-tools">Browser-based tools</h3>
+
+                <p>Today, most modern browsers have some kind of development environment that can be turned on or triggered.
+                    Extra functions are available by plug-in or extension.</p>
+
+                <p>All browsers have a development environment today, with two primary platforms giving insight to developers
+                    through a suite of tools.</p>
+
+                <h4 id="firefox">Firefox</h4>
+
+                <ul>
+                    <li>Mozilla Foundation’s web platform created by web developers</li>
+                    <li>Gecko rendering engine: fast and progressive</li>
+                    <li>Excellent level of standards compliance</li>
+                    <li>Corporate independence</li>
+                    <li>No built-in development tools</li>
+                    <li>Plethora of add-ons that make web development easy</li>
+                    <li>Add-ons have a downside: bloat</li>
+                </ul>
+
+                <h4 id="webkit">WebKit</h4>
+
+                <ul>
+                    <li>This is the platform that gives us Chrome, Safari and Opera, with a few other smaller browsers out there
+                        as well.</li>
+                    <li>Excellent platform that is very fast and standards compliant</li>
+                    <li>Third parties can download the source, make local adjustments and release their own version, as Google
+                        and Apple have both done</li>
+                    <li>Standalone version can be downloaded at any time for the latest release</li>
+                    <li>Development is done via the built-in Developer Tools</li>
+                    <li>Initially a thin environment, recent releases have made Webkit-based browsers excellent for developers</li>
+                    <li>Macintosh based developers may need to enable web developer options in Safari before accessing the devloper
+                        tools
+                    </li>
+                    <li>Mobile and device-specific development also available</li>
+                    <li>Remember to test in as many browsers as you can!</li>
+                </ul>
+
+                <p>Useful tools for this are <a href="http://browsershots.org">BrowserShots</a> (Chrome, Firefox, Safari, Opera)
+                    and <a href="http://netrenderer.com">Netrenderer</a> (For IE)</p>
+
+                <h3 id="firefox-extensions">Firefox Extensions</h3>
+
+                <p>Extensions are a big part of Firefox, especially considering the background the browser has in web development.</p>
+
+                <p>In fact, <a href="https://addons.mozilla.org/en-US/firefox/extensions/web-development/">Web Development</a>                    even has it’s own category at the Firefox Add-Ons site.</p>
+
+                <p>One of the best tools for Web Developers is the <a href="https://addons.mozilla.org/en-us/firefox/addon/web-developer/">Web Developer toolbar</a></p>
+
+                <p>While there are fantastic tools built into each browser, the Web Developer Toolbar proves useful often and
+                    is worth having in your portfolio.</p>
+
+                <p>Some of the amazing tools this has to offer web developers:</p>
+
+                <ul>
+                    <li>Disable styles - by embedded/linked/inline as well as all styles, or just a single sheet</li>
+                    <li>Edit CSS &amp; HTML - Make live changes to your CSS or HTML!</li>
+                    <li>Images - outlining, file sizes, alt information… lots more</li>
+                    <li>Form detail - useful for working with form elements</li>
+                    <li>Cookie examination and manipulation</li>
+                    <li>Built in validators</li>
+                    <li>Line Guides &amp; Rulers</li>
+                    <li>Element inspector</li>
+                </ul>
+
+                <blockquote>
+                    <p>Let’s take a quick look at the Web Developer Toolbar</p>
+                </blockquote>
+
+                <ul>
+                    <li><a href="https://addons.mozilla.org/en-us/firefox/addon/web-developer/">Install the Web Developer Toolbar in Firefox</a>                        if you have not already done so</li>
+                    <li>Examine the page using the Information tab, display various items on the page</li>
+                    <li>Use the Element Information tool (Information &gt; Display Element Information) and click on various
+                        items on the page</li>
+                    <li>Validate your page with the Tools tab (Tools &gt; Validate HTML)</li>
+                    <li>Edit the CSS of the page, or just add some new CSS (CSS &gt; Edit CSS)</li>
+                </ul>
+
+                <h3 id="browser-based-diagnostic-tools">Browser Based Diagnostic Tools</h3>
+
+                <p>Like the Web Developer toolbar, this next extension also allows you to work with your web pages, albeit in
+                    a very different way.</p>
+
+                <p>As we get more complex, the harder it can be to figure out what is going on or what we got right or wrong.</p>
+
+                <p>Having a diagnostic tool to assist in developing will make it easier to examine every detail of your web
+                    page.
+                </p>
+
+                <p>It goes beyond outlining, examining and editing into deep troubleshooting of network, javascript and even
+                    XHR (XMLHttpRequest)</p>
+
+                <ul>
+                    <li>Diagnostic Tool: <a href="http://getfirebug.com/">Firefox Firebug</a> (Add-on)</li>
+                    <li>Diagnostic Tool: Firefox (Built-In)</li>
+                    <li>Diagnostic Tool: Chrome (Built-In)</li>
+                    <li>Diagnostic Tool: Safari (Built-In)</li>
+                </ul>
+
+                <p>Let’s take a look at Firebug and what it can do!</p>
+
+                <p>Get familiar with using Firebug or similar tools. You will be required to use them in the classes ahead.</p>
+
+                <h3 id="developer-tools-wrap-up">Developer Tools Wrap up</h3>
+
+                <ul>
+                    <li>Firefox was the first browser to have real tools embedded and, with extensions, it’s a real powerhouse
+                        now
+                    </li>
+                    <li>The last few years have seen a constant progression of improved tools in other browsers, bringing everything
+                        up a significant notch</li>
+                    <li>Not a bad idea to have a “dev browser” that can be weighted down with tools</li>
+                </ul>
+
+                <h2 id="standards">Standards</h2>
+
+                <p>Let’s take a look at what Stadards are, what the point is and why they can benefit us or cause sadness later.
+                </p>
+
+                <h3 id="definition">Definition</h3>
+
+                <p><em>Web standards are the formal, non-proprietary standards and other technical specifications that define and describe aspects of the World Wide Web.</em></p>
+
+                <h4 id="real-life-examples">Real life examples</h4>
+
+                <ul>
+                    <li>Lightbulbs</li>
+                    <li>Grades of gasoline</li>
+                    <li>Train rail widths</li>
+                    <li>TV Broadcast signals</li>
+                    <li>Home appliances</li>
+                </ul>
+
+                <h4 id="why-use-them">Why use them?</h4>
+
+                <ul>
+                    <li>Interoperability</li>
+                    <li>Predictable results/dimensions/values</li>
+                    <li>A new specification is not needed for each new manufacturing run</li>
+                    <li>Need a new microwave? You can count on:
+                        <ul>
+                            <li>Plug/Voltage/Power</li>
+                            <li>Unit size</li>
+                            <li>Operation</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h3 id="web-standards">Web Standards</h3>
+
+                <p>When you build without standards, you are investing in the here and now, without thinking of tomorrow.</p>
+
+                <ul>
+                    <li>Code can be hard to support</li>
+                    <li>Future developers may be confused</li>
+                    <li>Re-engineering websites can be very difficult, costly and time consuming</li>
+                    <li>Most important Content is fused to your markup!</li>
+                </ul>
+
+                <h2 id="standards-history-toward-the-web">Standards: History toward the Web</h2>
+
+                <h3 id="iso">ISO</h3>
+
+                <p><a href="http://www.iso.org">International Organization for Standards</a></p>
+
+                <ul>
+                    <li><strong>1906:</strong> As the Intn’l Electrotechnical Commission (IEC): in order to better access pre-determined
+                        equipment that was interchangeable and interoperable</li>
+                    <li><strong>1947:</strong> 25 countries got together to form ISO: “to facilitate the international coordination
+                        and unification of industrial standards”</li>
+                    <li>Companies agree to become a part of ISO, and gain access to the complete library of standards set by
+                        the organization in concert with their many members</li>
+                    <li>While it started slowly, many companies ignored standards, in favor of their own “proprietary” methods</li>
+                    <li>Momentum, corporate marketing (companies advertising that their product or method conforms with ISO XXXX),
+                        and some government legislation (forcing the adoption of certain standards) led to a larger adoption
+                        of standards</li>
+                </ul>
+
+                <p><a href="http://www.w3.org/standards">W3C: World Wide Web Consortium</a></p>
+
+                <ul>
+                    <li>Web standards are going through the same process that the ISO went through</li>
+                    <li>Many companies see the benefits of interoperability - many are still “forging their own”</li>
+                    <li>Many companies have standards: Adobe, Microsoft, Apple, Ford, GM</li>
+                    <li>Many are proprietary standards, and are not supported by many companies</li>
+                    <li>W3C - World Wide Web Consortium: founded by Tim Berners-Lee to try and uniformly put forward standards
+                        through a single communication vehicle</li>
+                    <li>Leading browser makers did not follow, initially</li>
+                    <li>Designers were ‘taking sides’ in the browser wars: users were losers</li>
+                </ul>
+
+                <h3 id="w3c-goals">W3C Goals</h3>
+
+                <ul>
+                    <li><strong>Universal Access</strong>: To make the Web accessible to all by promoting technologies that take
+                        into account the vast differences in culture, languages, education, ability, material resources,
+                        access devices, and physical limitations of users on all continents;</li>
+                    <li><strong>Semantic Web</strong>: To develop a software environment that permits each user to make the best
+                        use of the resources available on the Web;</li>
+                    <li><strong>Web of Trust</strong>: To guide the Web’s development with careful consideration for the novel
+                        legal, commercial, and social issues raised by this technology.</li>
+                </ul>
+
+                <h3 id="making-progress">Making Progress</h3>
+
+                <p>Eventually, the drive towards standards began to win out</p>
+
+                <ul>
+                    <li>Users made their voices known and momentum started to slowly shift toward supporting standards</li>
+                    <li>Seen as a marketing opportunity: Our browser supports standards!</li>
+                    <li>Mozilla Project emerged after a large number of Netscape developers were let go upon the acquisition
+                        by AOL</li>
+                    <li>Mozilla is now a standards-compliant browser with many features</li>
+                    <li>Microsoft and AOL followed shortly with adoption of W3C standards (with limitations)</li>
+                    <li>Large companies started joining the W3C to be seen as part of the Standards game</li>
+                </ul>
+
+                <h3 id="for-web-developers">For Web Developers</h3>
+
+                <p>Designing to current W3C specifications means that:</p>
+
+                <p><em>Your pages will be viewable in the largest number of browsers, the largest number of devices and (if used correctly) will gracefully degrade as support for CSS or other presentation layers are absent.</em></p>
+
+                <p>Some more words from the <a href="http://www.webstandards.org/learn/faq/">Web Standards Project</a> worth
+                    reading
+                </p>
+
+                <h2 id="details-of-standards-driven-development">Details of Standards-Driven Development</h2>
+
+                <p>Standard HTML + CSS + JS = Front-end Development = Best support</p>
+
+                <p>When you use standards-based development, you have the best chance to see your content displayed appropriately
+                    across the largest number of browsers.</p>
+
+                <ul>
+                    <li>Structurally valid HTML code (eg: tags that open are closed. parent-child tag relationships are valid,
+                        etc)
+                    </li>
+                    <li>Logically valid HTML code (eg: ids are not applied more than once per page)</li>
+                    <li>Use CSS to develop sites that separate content (HTML) from presentation (CSS)</li>
+                    <li>Getting rid of deprecated tags, complex table layouts, browser sniffing, code forking</li>
+                    <li>Using Semantic Markup to establish content relationships and logical deployment of content</li>
+                </ul>
+
+                <h3 id="future-compatibility">Future Compatibility</h3>
+
+                <ul>
+                    <li>Code is easier to use for future developers</li>
+                    <li>Less presentational HTML means easier design changes</li>
+                    <li>Keep the same code for longer periods of time</li>
+                    <li>Optimally, never change your code (if all presentation is gone)</li>
+                </ul>
+
+                <h3 id="reduced-development-costs">Reduced Development Costs</h3>
+                <ul>
+                    <li>Shorter development times for style changes</li>
+                    <li>CSS based layouts are easier to redesign, superior to HTML table layouts</li>
+                    <li>Easier to integrate with CMS (Content Management System) tools</li>
+                </ul>
+
+                <h3 id="special-needs">Special Needs</h3>
+                <ul>
+                    <li>HTML lends itself to assistive readers (low vision, etc)</li>
+                    <li>Can support multiple stylesheets for different user needs</li>
+                    <li>An eye-opening exercise: try browsing with Webbie, a browser for the blind</li>
+                </ul>
+
+                <h3 id="single-codebase">Single Codebase</h3>
+                <ul>
+                    <li>No complex sniffing scripts</li>
+                    <li>Avoid having to support multiple browsers with multiple home/site pages (code forking)</li>
+                    <li>Much less upkeep (only one source to update)</li>
+                </ul>
+
+                <h3 id="moving-forward">Moving Forward</h3>
+                <ul>
+                    <li>Making the most of the elements you have control over</li>
+                    <li>jQuery ease of use! The better your HTML elements, classes and IDs, the easier it will be to access using
+                        jQuery
+                    </li>
+                </ul>
+
+                <h2 id="standards-development">Standards Development</h2>
+
+                <p>There are a few things that bear remembering…</p>
+
+                <h3 id="file-names">File names</h3>
+
+                <ul>
+                    <li>file and folder names should never contain
+                        <ul>
+                            <li>capital letters</li>
+                            <li>spaces, or;</li>
+                            <li>
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>special characters such as ! @ # $ % ^ &amp; * ( ) + { } [ ] : ; “ &lt; &gt;
+                                                ?
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>acceptable non-alphanumeric characters: . _ - ~</li>
+                </ul>
+
+                <h3 id="auto-render-pages">Auto-render pages</h3>
+
+                <ul>
+                    <li>simple default page: <strong>index.htm</strong>, <strong>index.html</strong> or <strong>index.shtml</strong>                        (or whatever your server default is)</li>
+                </ul>
+
+                <h3 id="file-management">File management</h3>
+
+                <ul>
+                    <li>including an index.html file in every folder on your server will ensure users cannot go snooping around
+                        your filesystem</li>
+                    <li>the index.html file can be a blank HTML page if you like, as long as the user does not see a list of
+                        files when they request a folder
+                        <ul>
+                            <li>Tip: Unix-style system developers can just use:</li>
+                            <li><em>touch index.html</em></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h3 id="browser-caching">Browser caching</h3>
+
+                <p>Browser caching can reduce excessive request/response transactions between client and server. However, some
+                    browsers may cache things like the CSS, so if the styles have changed since caching the client may not
+                    get the latest styles. Shift + Reload, or Ctrl + F5 (Cmd + F5 for Mac) will force a page reload, but
+                    what if you users don’t think to do so?</p>
+
+                <p>Solution:</p>
+
+                <ul>
+                    <li>if a file name has changed, the browser will have to make a new request from the server. Versioning your
+                        file names will ensure users always have the latest version of any file (for example styles_1.0.css,
+                        styles_1.1.css, styles_1.2.css, styles_2.0.css etc)</li>
+                    <li>Query strings for CSS can also help to defeat caching as this will force a new load: styles.css?v1.2</li>
+                    <li>if there are files/pages on your server no longer being used, be sure to either remove them or locate
+                        them in a place where users are not going to accidentally find them</li>
+                </ul>
+
+                <h2 id="semantic-markup">Semantic Markup</h2>
+
+                <p>As important as Standards-based development, Semantics played a huge part in the development of HTML5 and
+                    are here to stay.</p>
+
+                <p>They can also play a big part in your site being indexed successfully by some of the largest search engines
+                    out there.</p>
+
+                <h3 id="what-is-semantic-markup">What is Semantic Markup?</h3>
+
+                <p>Semantic markup is using the best tags that describe your content appropriately, and arranging your content
+                    in a hierarchy to group content together logically.</p>
+
+                <ul>
+                    <li>Practice of organizing your content into a hierarchy</li>
+                    <li>Using appropriate tags for the content</li>
+                    <li>H1 … 6 tags for summary headings</li>
+                    <li>UL tags for unsorted, unranked, related points</li>
+                    <li>OL tags for sorted, ranked, related points</li>
+                    <li>Paragraph tags instead of double BR tags</li>
+                    <li>CSS instead of FONT</li>
+                    <li>HTML tables used for semantic value (tabular data), not for layouts</li>
+                </ul>
+
+                <blockquote>
+                    <p>Key Concept: Separate Content (HTML) from Presentation (CSS)</p>
+                </blockquote>
+
+                <h3 id="building-content-relationships">Building Content Relationships</h3>
+
+                <p>Use appropriate tags for headings, content, sub-content, and lists, as this builds a relationship that descends
+                    from the title of the page.</p>
+
+                <p>Each group of content is a discrete piece of information bounded by headings, which relate to following paragraphs.
+                </p>
+
+                <h3 id="logical-vs-physical-styles">Logical vs. Physical Styles</h3>
+
+                <p>The difference between logical and physical styles is hard to see. They display identically in browsers,
+                    but are fundamentally different.</p>
+
+                <blockquote>
+                    <p>Key concept: Physical styles define what content looks like, logical styles define what content is</p>
+                </blockquote>
+
+                <ul>
+                    <li>Logical styles are important for screen readers, physical styles are not</li>
+                    <li>Given a choice, logical styles are usually preferred</li>
+                    <li>Some <strong>physical</strong> styles:
+                        <ul>
+                            <li>b - Bold</li>
+                            <li>i - Italic</li>
+                            <li>s - Strikethrough</li>
+                            <li>u - Underline</li>
+                            <li>font tags</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h4 id="logical-styling">Logical Styling</h4>
+
+                <ul>
+                    <li>Best way to markup content for long-term usage</li>
+                    <li>Use CSS to change style (and some behaviour)</li>
+                    <li>Use JS to change behaviour</li>
+                    <li>Some logical styles:
+                        <ul>
+                            <li>code - Code sample</li>
+                            <li>kbd - Keyboard entry</li>
+                            <li>samp - Programming sample</li>
+                            <li>var - Variable</li>
+                            <li>cite - Citation</li>
+                            <li>dfn - Definition</li>
+                            <li>abbr - Abbreviation</li>
+                            <li>acronym - Acronym</li>
+                            <li>del - Deleted text</li>
+                            <li>ins - Inserted text</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h4 id="key-advantages">Key Advantages</h4>
+
+                <ul>
+                    <li>Extracting important pieces of information is simple (CITE or CODE tags for example)</li>
+                    <li>Search engine optimization (SEO)</li>
+                    <li>Big win for jQuery</li>
+                    <li>RSS readers scraping content</li>
+                    <li>In-browser “focus” applications</li>
+                    <li>Assistive Screen reader friendly</li>
+                </ul>
+
+                <h2 id="prerequisites">Prerequisites</h2>
+                <p>While there is plenty of individual homework to do, there will be several team oriented exercises in this
+                    class. Be sure to build pages you are proud of, and be ready and willing to share the them with your
+                    colleagues.
+                </p>
+
+                <p>All COMP1950 students must verify they are capable of connecting to their course webspace via FTP. Students
+                    are expected to be fluent with the use of FTP, so be sure to remember your connectivity information.</p>
+
+                <p>Reminder: <a href="/studentpages">Details on Student Pages</a></p>
+
+                <h2 id="comp1950-best-practices">COMP1950 Best Practices</h2>
+
+                <ul>
+                    <li>Get acquainted with a browser based developer tool(s). they are crucial to making your development more
+                        efficient and effective.</li>
+                    <li>Suggestion is Firefox, but Chrome, Safari are also great tools. IE development tools are not as well
+                        known, use at your own risk.</li>
+                    <li>Practice standards based development at all times:
+                        <ul>
+                            <li>encourage user trust by building pages that are coherent and well presented</li>
+                            <li>facilitate accessibility options for the disabled</li>
+                        </ul>
+                    </li>
+                    <li><strong>HTML</strong>: used for describing the semantics and structure of page content</li>
+                    <li><strong>CSS</strong>: used for applying presentation rules (colors, fonts, content location/position)</li>
+                    <li><strong>Javascript</strong>: enables page behavior, response to user interactions recognize that only
+                        structuraly valid code can be expected to operate predictably</li>
+                    <li><a href="https://validator.w3.org">W3C HTML validator</a></li>
+                    <li><a href="https://jigsaw.w3.org/css-validator/">W3C CSS validator</a></li>
+                </ul>
+
+                <p>There will be challenges in class as well as open and closed book quizzes.</p>
+
+                <h2 id="homework">Homework</h2>
+
+                <p>Homework will <em>ALWAYS</em> be due at 12:00pm Noon the day before the next class. For those who are challenged
+                    by calendars, this means that you must have your homework uploaded to your Student Page by Noon on Mondays.</p>
+
+                <p>If you do not have your homework up in time, it will be marked as incomplete and you will receive no feedback.
+                    However, you are encouraged to complete your homework anyway, as you will receive a mark at the end of
+                    the term for the entirety of your assignments.</p>
+            </article>
+
+            <div class="four columns">
+                <button class="jscolor {valueElement:'chosen-value', onFineChange:'update(this)'}">
+                    Pick Background color
+                </button>
+                <button class="jscolor {valueElement:'chosen-value', onFineChange:'setTextColor(this)'}">
+                    Pick text color
+                </button>
+            </div>
+            <div id="search">
+                <form id="tfnewsearch" method="get">
+                    <input type="text" class="tftextinput" name="q" size="21" maxlength="120">
+                    <input type="submit" value="search" class="tfbutton">
+                </form>
+            </div>
     </header>
     <div class="twelve columns title">
         <div class="eight columns">
             <h2>Comp 1950 WebSite</h2>
         </div>
     </div>
-
     <div class="container">
         <div class="row">
             <div class="two columns">
@@ -96,22 +699,15 @@
                 </nav>
                 <!--/Navigation -->
             </div>
-
-
-
             <div class="ten columns">
-
                 <nav id="navbar">
-                    <!-- Start horizontal navigation --> 
-                   <!--#include file="inc/horizontal_nav.inc"-->
+                    <!-- Start horizontal navigation -->
+                    <!--#include file="inc/horizontal_nav.inc"-->
                 </nav>
-
                 <article>
                     <h1 class="page-title">Week 1</h1>
                     <p>Week 1: Getting started, introductions, standards, tools</p>
-
                     <h2 id="agenda">Agenda</h2>
-
                     <ul>
                         <li>Orientation</li>
                         <li>Introductions</li>
@@ -120,45 +716,29 @@
                         <li>Student Pages setup</li>
                         <li>Homework</li>
                     </ul>
-
                     <h2 id="orientation">Orientation</h2>
-
                     <p>Learn about the course to help you determine if this is the right class for you. Take a look at the
                         <a href="/outline">course outline</a>
                     </p>
-
                     <h3 id="outline">Outline</h3>
-
                     <p>A week-by-week breakdown of what we will learn, homework and other deliverables</p>
-
                     <h3 id="student-pages">Student Pages</h3>
-
                     <p>Each student will get personal webspace. This is not a continuation of your COMP1850 site (if you had
                         one). This site is primarily for you to house your exercises, assignments, group work and more. Make
                         it a site that is usable and functional.</p>
-
                     <p>Each student will be assigned web space for their homework and other files. All work performed on lab
                         computers should be saved to personal files.</p>
-
                     <p>Your instructor will create webspaces for each student at the end of the first lecture. Please be present
                         for this, as you will be entering your own password.</p>
-
                     <p><a href="/studentpages">More information on Student Pages</a>.</p>
-
                     <h2 id="tools">Tools</h2>
-
                     <p>Today, there are a lot of tools in Web Development, many of them are free with a few that have a cost
                         that needs to be judged by how much you will use the tool.</p>
-
                     <h3 id="your-tools">Your Tools</h3>
-
                     <p>What kind of tools are you using to do your web development? These can be anything from editors to image
                         editors, services for testing browser deployments, language linters, and more.</p>
-
-                    <p>Some of the tools used by web developers…</p>
-
+                    <p>Some of the tools used by web developersâ€¦</p>
                     <h4 id="editors">Editors</h4>
-
                     <ul>
                         <li><a href="https://notepad-plus-plus.org">Notepad++</a> - Text Editor (Win) * installed in BCIT lab
                             computers *</li>
@@ -168,34 +748,25 @@
                         <li><a href="http://www.barebones.com/products/textwrangler/">Text Wrangler</a> - Text Editor (Mac)</li>
                         <li><a href="http://www.htmlkit.com">HTMLKit</a> - Web Dev IDE (Win)</li>
                     </ul>
-
                     <h4 id="ftp">FTP</h4>
-
                     <ul>
                         <li><a href="https://filezilla-project.org">Filezilla</a> - FTP tool (Win) * installed in BCIT lab computers
                             *
                         </li>
                         <li><a href="https://cyberduck.io/?l=en">Cyberduck FTP</a> - FTP tool (Mac)</li>
                     </ul>
-
                     <p>There are so many more! Maybe you use something not on the above list.</p>
-
                     <blockquote>
                         <p>What are your tools?</p>
                     </blockquote>
-
                     <h3 id="browser-based-tools">Browser-based tools</h3>
-
                     <p>Today, most modern browsers have some kind of development environment that can be turned on or triggered.
                         Extra functions are available by plug-in or extension.</p>
-
                     <p>All browsers have a development environment today, with two primary platforms giving insight to developers
                         through a suite of tools.</p>
-
                     <h4 id="firefox">Firefox</h4>
-
                     <ul>
-                        <li>Mozilla Foundation’s web platform created by web developers</li>
+                        <li>Mozilla Foundationâ€™s web platform created by web developers</li>
                         <li>Gecko rendering engine: fast and progressive</li>
                         <li>Excellent level of standards compliance</li>
                         <li>Corporate independence</li>
@@ -203,9 +774,7 @@
                         <li>Plethora of add-ons that make web development easy</li>
                         <li>Add-ons have a downside: bloat</li>
                     </ul>
-
                     <h4 id="webkit">WebKit</h4>
-
                     <ul>
                         <li>This is the platform that gives us Chrome, Safari and Opera, with a few other smaller browsers out
                             there as well.</li>
@@ -220,38 +789,29 @@
                         <li>Mobile and device-specific development also available</li>
                         <li>Remember to test in as many browsers as you can!</li>
                     </ul>
-
                     <p>Useful tools for this are <a href="http://browsershots.org">BrowserShots</a> (Chrome, Firefox, Safari,
                         Opera) and <a href="http://netrenderer.com">Netrenderer</a> (For IE)</p>
-
                     <h3 id="firefox-extensions">Firefox Extensions</h3>
-
-                    <p>Extensions are a big part of Firefox, especially considering the background the browser has in web development.</p>
-
-                    <p>In fact, <a href="https://addons.mozilla.org/en-US/firefox/extensions/web-development/">Web Development</a>                        even has it’s own category at the Firefox Add-Ons site.</p>
-
+                    <p>Extensions are a big part of Firefox, especially considering the background the browser has in web development.
+                    </p>
+                    <p>In fact, <a href="https://addons.mozilla.org/en-US/firefox/extensions/web-development/">Web Development</a>                        even has itâ€™s own category at the Firefox Add-Ons site.</p>
                     <p>One of the best tools for Web Developers is the <a href="https://addons.mozilla.org/en-us/firefox/addon/web-developer/">Web Developer toolbar</a></p>
-
                     <p>While there are fantastic tools built into each browser, the Web Developer Toolbar proves useful often
                         and is worth having in your portfolio.</p>
-
                     <p>Some of the amazing tools this has to offer web developers:</p>
-
                     <ul>
                         <li>Disable styles - by embedded/linked/inline as well as all styles, or just a single sheet</li>
                         <li>Edit CSS &amp; HTML - Make live changes to your CSS or HTML!</li>
-                        <li>Images - outlining, file sizes, alt information… lots more</li>
+                        <li>Images - outlining, file sizes, alt informationâ€¦ lots more</li>
                         <li>Form detail - useful for working with form elements</li>
                         <li>Cookie examination and manipulation</li>
                         <li>Built in validators</li>
                         <li>Line Guides &amp; Rulers</li>
                         <li>Element inspector</li>
                     </ul>
-
                     <blockquote>
-                        <p>Let’s take a quick look at the Web Developer Toolbar</p>
+                        <p>Letâ€™s take a quick look at the Web Developer Toolbar</p>
                     </blockquote>
-
                     <ul>
                         <li><a href="https://addons.mozilla.org/en-us/firefox/addon/web-developer/">Install the Web Developer Toolbar in Firefox</a>                            if you have not already done so</li>
                         <li>Examine the page using the Information tab, display various items on the page</li>
@@ -260,54 +820,39 @@
                         <li>Validate your page with the Tools tab (Tools &gt; Validate HTML)</li>
                         <li>Edit the CSS of the page, or just add some new CSS (CSS &gt; Edit CSS)</li>
                     </ul>
-
                     <h3 id="browser-based-diagnostic-tools">Browser Based Diagnostic Tools</h3>
-
                     <p>Like the Web Developer toolbar, this next extension also allows you to work with your web pages, albeit
                         in a very different way.</p>
-
                     <p>As we get more complex, the harder it can be to figure out what is going on or what we got right or wrong.</p>
-
                     <p>Having a diagnostic tool to assist in developing will make it easier to examine every detail of your
                         web page.</p>
-
                     <p>It goes beyond outlining, examining and editing into deep troubleshooting of network, javascript and
                         even XHR (XMLHttpRequest)</p>
-
                     <ul>
                         <li>Diagnostic Tool: <a href="http://getfirebug.com/">Firefox Firebug</a> (Add-on)</li>
                         <li>Diagnostic Tool: Firefox (Built-In)</li>
                         <li>Diagnostic Tool: Chrome (Built-In)</li>
                         <li>Diagnostic Tool: Safari (Built-In)</li>
                     </ul>
-
-                    <p>Let’s take a look at Firebug and what it can do!</p>
-
-                    <p>Get familiar with using Firebug or similar tools. You will be required to use them in the classes ahead.</p>
-
+                    <p>Letâ€™s take a look at Firebug and what it can do!</p>
+                    <p>Get familiar with using Firebug or similar tools. You will be required to use them in the classes ahead.
+                    </p>
                     <h3 id="developer-tools-wrap-up">Developer Tools Wrap up</h3>
-
                     <ul>
-                        <li>Firefox was the first browser to have real tools embedded and, with extensions, it’s a real powerhouse
+                        <li>Firefox was the first browser to have real tools embedded and, with extensions, itâ€™s a real powerhouse
                             now
                         </li>
                         <li>The last few years have seen a constant progression of improved tools in other browsers, bringing
                             everything up a significant notch</li>
-                        <li>Not a bad idea to have a “dev browser” that can be weighted down with tools</li>
+                        <li>Not a bad idea to have a "browser" that can be weighted down with tools</li>
                     </ul>
-
                     <h2 id="standards">Standards</h2>
-
-                    <p>Let’s take a look at what Stadards are, what the point is and why they can benefit us or cause sadness
+                    <p>Let's take a look at what Stadards are, what the point is and why they can benefit us or cause sadness
                         later.
                     </p>
-
                     <h3 id="definition">Definition</h3>
-
                     <p><em>Web standards are the formal, non-proprietary standards and other technical specifications that define and describe aspects of the World Wide Web.</em></p>
-
                     <h4 id="real-life-examples">Real life examples</h4>
-
                     <ul>
                         <li>Lightbulbs</li>
                         <li>Grades of gasoline</li>
@@ -315,9 +860,7 @@
                         <li>TV Broadcast signals</li>
                         <li>Home appliances</li>
                     </ul>
-
                     <h4 id="why-use-them">Why use them?</h4>
-
                     <ul>
                         <li>Interoperability</li>
                         <li>Predictable results/dimensions/values</li>
@@ -330,66 +873,53 @@
                             </ul>
                         </li>
                     </ul>
-
                     <h3 id="web-standards">Web Standards</h3>
-
                     <p>When you build without standards, you are investing in the here and now, without thinking of tomorrow.</p>
-
                     <ul>
                         <li>Code can be hard to support</li>
                         <li>Future developers may be confused</li>
                         <li>Re-engineering websites can be very difficult, costly and time consuming</li>
                         <li>Most important Content is fused to your markup!</li>
                     </ul>
-
                     <h2 id="standards-history-toward-the-web">Standards: History toward the Web</h2>
-
                     <h3 id="iso">ISO</h3>
-
                     <p><a href="http://www.iso.org">International Organization for Standards</a></p>
-
                     <ul>
-                        <li><strong>1906:</strong> As the Intn’l Electrotechnical Commission (IEC): in order to better access
+                        <li><strong>1906:</strong> As the Intnâ€™l Electrotechnical Commission (IEC): in order to better access
                             pre-determined equipment that was interchangeable and interoperable</li>
-                        <li><strong>1947:</strong> 25 countries got together to form ISO: “to facilitate the international coordination
-                            and unification of industrial standards”</li>
+                        <li><strong>1947:</strong> 25 countries got together to form ISO: to facilitate the international coordination
+                            and unification of industrial standards</li>
                         <li>Companies agree to become a part of ISO, and gain access to the complete library of standards set
                             by the organization in concert with their many members</li>
-                        <li>While it started slowly, many companies ignored standards, in favor of their own “proprietary” methods</li>
+                        <li>While it started slowly, many companies ignored standards, in favor of their own "proprietary" methods
+                        </li>
                         <li>Momentum, corporate marketing (companies advertising that their product or method conforms with ISO
                             XXXX), and some government legislation (forcing the adoption of certain standards) led to a larger
                             adoption of standards</li>
                     </ul>
-
                     <p><a href="http://www.w3.org/standards">W3C: World Wide Web Consortium</a></p>
-
                     <ul>
                         <li>Web standards are going through the same process that the ISO went through</li>
-                        <li>Many companies see the benefits of interoperability - many are still “forging their own”</li>
+                        <li>Many companies see the benefits of interoperability - many are still "forging their own"</li>
                         <li>Many companies have standards: Adobe, Microsoft, Apple, Ford, GM</li>
                         <li>Many are proprietary standards, and are not supported by many companies</li>
                         <li>W3C - World Wide Web Consortium: founded by Tim Berners-Lee to try and uniformly put forward standards
                             through a single communication vehicle</li>
                         <li>Leading browser makers did not follow, initially</li>
-                        <li>Designers were ‘taking sides’ in the browser wars: users were losers</li>
+                        <li>Designers were â€˜taking sidesâ€™ in the browser wars: users were losers</li>
                     </ul>
-
                     <h3 id="w3c-goals">W3C Goals</h3>
-
                     <ul>
                         <li><strong>Universal Access</strong>: To make the Web accessible to all by promoting technologies that
                             take into account the vast differences in culture, languages, education, ability, material resources,
                             access devices, and physical limitations of users on all continents;</li>
                         <li><strong>Semantic Web</strong>: To develop a software environment that permits each user to make the
                             best use of the resources available on the Web;</li>
-                        <li><strong>Web of Trust</strong>: To guide the Web’s development with careful consideration for the
+                        <li><strong>Web of Trust</strong>: To guide the Webâ€™s development with careful consideration for the
                             novel legal, commercial, and social issues raised by this technology.</li>
                     </ul>
-
                     <h3 id="making-progress">Making Progress</h3>
-
                     <p>Eventually, the drive towards standards began to win out</p>
-
                     <ul>
                         <li>Users made their voices known and momentum started to slowly shift toward supporting standards</li>
                         <li>Seen as a marketing opportunity: Our browser supports standards!</li>
@@ -399,24 +929,16 @@
                         <li>Microsoft and AOL followed shortly with adoption of W3C standards (with limitations)</li>
                         <li>Large companies started joining the W3C to be seen as part of the Standards game</li>
                     </ul>
-
                     <h3 id="for-web-developers">For Web Developers</h3>
-
                     <p>Designing to current W3C specifications means that:</p>
-
                     <p><em>Your pages will be viewable in the largest number of browsers, the largest number of devices and (if used correctly) will gracefully degrade as support for CSS or other presentation layers are absent.</em></p>
-
                     <p>Some more words from the <a href="http://www.webstandards.org/learn/faq/">Web Standards Project</a> worth
                         reading
                     </p>
-
                     <h2 id="details-of-standards-driven-development">Details of Standards-Driven Development</h2>
-
                     <p>Standard HTML + CSS + JS = Front-end Development = Best support</p>
-
                     <p>When you use standards-based development, you have the best chance to see your content displayed appropriately
                         across the largest number of browsers.</p>
-
                     <ul>
                         <li>Structurally valid HTML code (eg: tags that open are closed. parent-child tag relationships are valid,
                             etc)
@@ -426,50 +948,40 @@
                         <li>Getting rid of deprecated tags, complex table layouts, browser sniffing, code forking</li>
                         <li>Using Semantic Markup to establish content relationships and logical deployment of content</li>
                     </ul>
-
                     <h3 id="future-compatibility">Future Compatibility</h3>
-
                     <ul>
                         <li>Code is easier to use for future developers</li>
                         <li>Less presentational HTML means easier design changes</li>
                         <li>Keep the same code for longer periods of time</li>
                         <li>Optimally, never change your code (if all presentation is gone)</li>
                     </ul>
-
                     <h3 id="reduced-development-costs">Reduced Development Costs</h3>
                     <ul>
                         <li>Shorter development times for style changes</li>
                         <li>CSS based layouts are easier to redesign, superior to HTML table layouts</li>
                         <li>Easier to integrate with CMS (Content Management System) tools</li>
                     </ul>
-
                     <h3 id="special-needs">Special Needs</h3>
                     <ul>
                         <li>HTML lends itself to assistive readers (low vision, etc)</li>
                         <li>Can support multiple stylesheets for different user needs</li>
                         <li>An eye-opening exercise: try browsing with Webbie, a browser for the blind</li>
                     </ul>
-
                     <h3 id="single-codebase">Single Codebase</h3>
                     <ul>
                         <li>No complex sniffing scripts</li>
                         <li>Avoid having to support multiple browsers with multiple home/site pages (code forking)</li>
                         <li>Much less upkeep (only one source to update)</li>
                     </ul>
-
                     <h3 id="moving-forward">Moving Forward</h3>
                     <ul>
                         <li>Making the most of the elements you have control over</li>
                         <li>jQuery ease of use! The better your HTML elements, classes and IDs, the easier it will be to access
                             using jQuery</li>
                     </ul>
-
                     <h2 id="standards-development">Standards Development</h2>
-
-                    <p>There are a few things that bear remembering…</p>
-
+                    <p>There are a few things that bear rememberingâ€¦</p>
                     <h3 id="file-names">File names</h3>
-
                     <ul>
                         <li>file and folder names should never contain
                             <ul>
@@ -479,8 +991,8 @@
                                     <table>
                                         <tbody>
                                             <tr>
-                                                <td>special characters such as ! @ # $ % ^ &amp; * ( ) + { } [ ] : ; “ &lt; &gt;
-                                                    ?
+                                                <td>special characters such as ! @ # $ % ^ &amp; * ( ) + { } [ ] : ; â€œ &lt;
+                                                    &gt; ?
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -490,15 +1002,11 @@
                         </li>
                         <li>acceptable non-alphanumeric characters: . _ - ~</li>
                     </ul>
-
                     <h3 id="auto-render-pages">Auto-render pages</h3>
-
                     <ul>
                         <li>simple default page: <strong>index.htm</strong>, <strong>index.html</strong> or <strong>index.shtml</strong>                            (or whatever your server default is)</li>
                     </ul>
-
                     <h3 id="file-management">File management</h3>
-
                     <ul>
                         <li>including an index.html file in every folder on your server will ensure users cannot go snooping
                             around your filesystem</li>
@@ -510,16 +1018,12 @@
                             </ul>
                         </li>
                     </ul>
-
                     <h3 id="browser-caching">Browser caching</h3>
-
                     <p>Browser caching can reduce excessive request/response transactions between client and server. However,
                         some browsers may cache things like the CSS, so if the styles have changed since caching the client
                         may not get the latest styles. Shift + Reload, or Ctrl + F5 (Cmd + F5 for Mac) will force a page
-                        reload, but what if you users don’t think to do so?</p>
-
+                        reload, but what if you users donâ€™t think to do so?</p>
                     <p>Solution:</p>
-
                     <ul>
                         <li>if a file name has changed, the browser will have to make a new request from the server. Versioning
                             your file names will ensure users always have the latest version of any file (for example styles_1.0.css,
@@ -528,53 +1032,40 @@
                         <li>if there are files/pages on your server no longer being used, be sure to either remove them or locate
                             them in a place where users are not going to accidentally find them</li>
                     </ul>
-
                     <h2 id="semantic-markup">Semantic Markup</h2>
-
                     <p>As important as Standards-based development, Semantics played a huge part in the development of HTML5
                         and are here to stay.</p>
-
                     <p>They can also play a big part in your site being indexed successfully by some of the largest search engines
                         out there.</p>
-
                     <h3 id="what-is-semantic-markup">What is Semantic Markup?</h3>
-
                     <p>Semantic markup is using the best tags that describe your content appropriately, and arranging your content
                         in a hierarchy to group content together logically.</p>
-
                     <ul>
                         <li>Practice of organizing your content into a hierarchy</li>
                         <li>Using appropriate tags for the content</li>
-                        <li>H1 … 6 tags for summary headings</li>
+                        <li>H1 â€¦ 6 tags for summary headings</li>
                         <li>UL tags for unsorted, unranked, related points</li>
                         <li>OL tags for sorted, ranked, related points</li>
                         <li>Paragraph tags instead of double BR tags</li>
                         <li>CSS instead of FONT</li>
                         <li>HTML tables used for semantic value (tabular data), not for layouts</li>
                     </ul>
-
                     <blockquote>
                         <p>Key Concept: Separate Content (HTML) from Presentation (CSS)</p>
                     </blockquote>
-
                     <h3 id="building-content-relationships">Building Content Relationships</h3>
-
                     <p>Use appropriate tags for headings, content, sub-content, and lists, as this builds a relationship that
                         descends from the title of the page.</p>
-
                     <p>Each group of content is a discrete piece of information bounded by headings, which relate to following
                         paragraphs.
                     </p>
-
                     <h3 id="logical-vs-physical-styles">Logical vs. Physical Styles</h3>
-
                     <p>The difference between logical and physical styles is hard to see. They display identically in browsers,
                         but are fundamentally different.</p>
-
                     <blockquote>
-                        <p>Key concept: Physical styles define what content looks like, logical styles define what content is</p>
+                        <p>Key concept: Physical styles define what content looks like, logical styles define what content is
+                        </p>
                     </blockquote>
-
                     <ul>
                         <li>Logical styles are important for screen readers, physical styles are not</li>
                         <li>Given a choice, logical styles are usually preferred</li>
@@ -588,9 +1079,7 @@
                             </ul>
                         </li>
                     </ul>
-
                     <h4 id="logical-styling">Logical Styling</h4>
-
                     <ul>
                         <li>Best way to markup content for long-term usage</li>
                         <li>Use CSS to change style (and some behaviour)</li>
@@ -610,30 +1099,24 @@
                             </ul>
                         </li>
                     </ul>
-
                     <h4 id="key-advantages">Key Advantages</h4>
-
                     <ul>
                         <li>Extracting important pieces of information is simple (CITE or CODE tags for example)</li>
                         <li>Search engine optimization (SEO)</li>
                         <li>Big win for jQuery</li>
                         <li>RSS readers scraping content</li>
-                        <li>In-browser “focus” applications</li>
+                        <li>In-browser "focus" applications</li>
                         <li>Assistive Screen reader friendly</li>
                     </ul>
-
                     <h2 id="prerequisites">Prerequisites</h2>
                     <p>While there is plenty of individual homework to do, there will be several team oriented exercises in
                         this class. Be sure to build pages you are proud of, and be ready and willing to share the them with
                         your colleagues.</p>
-
                     <p>All COMP1950 students must verify they are capable of connecting to their course webspace via FTP. Students
-                        are expected to be fluent with the use of FTP, so be sure to remember your connectivity information.</p>
-
+                        are expected to be fluent with the use of FTP, so be sure to remember your connectivity information.
+                    </p>
                     <p>Reminder: <a href="/studentpages">Details on Student Pages</a></p>
-
                     <h2 id="comp1950-best-practices">COMP1950 Best Practices</h2>
-
                     <ul>
                         <li>Get acquainted with a browser based developer tool(s). they are crucial to making your development
                             more efficient and effective.</li>
@@ -652,31 +1135,23 @@
                         <li><a href="https://validator.w3.org">W3C HTML validator</a></li>
                         <li><a href="https://jigsaw.w3.org/css-validator/">W3C CSS validator</a></li>
                     </ul>
-
                     <p>There will be challenges in class as well as open and closed book quizzes.</p>
-
                     <h2 id="homework">Homework</h2>
-
                     <p>Homework will <em>ALWAYS</em> be due at 12:00pm Noon the day before the next class. For those who are
                         challenged by calendars, this means that you must have your homework uploaded to your Student Page
                         by Noon on Mondays.</p>
-
                     <p>If you do not have your homework up in time, it will be marked as incomplete and you will receive no
                         feedback. However, you are encouraged to complete your homework anyway, as you will receive a mark
                         at the end of the term for the entirety of your assignments.</p>
                 </article>
-
             </div>
-
         </div>
-        <!--/Row -->
-
+        <!-- /Row -->
         <footer class="twelve columns">
-            <!--#include file="inc/footer.inc" -->
-
+            <!-- #include file="inc/footer.inc" -->
         </footer>
     </div>
-    <!-------/Container-------->
+    <!-- ========= Container =========== -->
 </body>
 
 </html>

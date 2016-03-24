@@ -27,7 +27,7 @@
   box-sizing: border-box; }
 
 /* For devices larger than 400px */
-@media (min-width: 400px)and (max-width:549px)
+@media (min-width: 300px)and (max-width:549px)
  {
   .container {
     width: 85%;
