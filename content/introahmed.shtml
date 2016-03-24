@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Final Project</title>
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/grid.css" />
+        <script src="js/jquery-1.12.1.min.js"></script>
+        <script src="js/jscolor.js"></script>
+        <script>
+        function menuDrop() { // menuDrop() is a function that applies responsive techniques to the navigation system
+            // based on viewport/ window sizes 
+            if ($(window)
+                .width() <= 400) {
+                $("#navbar")
+                    .hide();
+                $(".menu-toggle, .menu")
+                    .show();
+            };
+
+            if ($(window)
+                .width() > 400) {
+                $("#navbar")
+                    .show();
+                $(".menu-toggle")
+                    .hide();
+                $(".menu")
+                    .hide();
+            }
+        };
+
+        $(document)
+            .ready(function() {
+
+                $(window)
+                    .resize(menuDrop);
+
+                menuDrop()
+                   
+                var plus = "<img src='img/plus.png' alt='plus' class='more'>";
+
+                //For every h2 element int the conatainer a plus sign is appeneded
+                $('article')
+                    .children('h2')
+                    .each(function(i, e) {
+                        $(e)
+                            .append(plus);
+                    });
+
+                // This hides all child elements inside of the central content
+                // container  except h1/h2 and toggles then content between those elements 
+                $('article')
+                    .children(':not(h1,h2, p:nth-child(2), ul:nth-child(3), ul:nth-child(4))')
+                    .hide();
+                $('h2')
+                    .click(function() {
+                        $(this)
+                            .nextUntil('h2')
+                            .toggle();
+                    })
+
+
+                //Slides the vertical menu out when burger button clicked
+                $('.menu-toggle')
+                    .click(function(event) {
+                        event.preventDefault();
+
+                        // create menu variables
+                        var slideoutMenu = $('.menu');
+                        var slideoutMenuWidth = slideoutMenu.width();
+
+                        // slide menu
+                        if (slideoutMenu.hasClass("open")) {
+                            slideoutMenu.animate({
+                                left: -slideoutMenuWidth
+                            }, 200);
+                        }
+                        else {
+                            slideoutMenu.animate({
+                                left: 0
+                            }, 200);
+                        }
+
+                        // toggle open class
+                        slideoutMenu.toggleClass("open");
+                    });
+
+            });
+
+        </script>
+        <script>
+        function update(jscolor) {
+            // 'jscolor' instance can be used as a string
+            document.getElementById('body')
+                .style.backgroundColor = '#' + jscolor
+        }
+
+        </script>
+        <script>
+        function setTextColor(picker) {
+            document.getElementsByTagName('article')[0]
+            .style.color = '#' + picker.toString()
+        }
+
+        </script>
+    </head>
+
+    <body id="body" style="text-color:black;">
+        <header class="twelve columns">
+            <img src="images/burgerm.png" class="menu-toggle" alt="Menu" />
+            <div id="date">
+                <!--#config timefmt="%A, %B %e, %Y." -->
+                Welcome! Today is
+                <!--#echo var="DATE_LOCAL" -->
+            </div>
+            <div class="four columns">
+                <button class="jscolor {valueElement:'chosen-value', onFineChange:'update(this)'}">
+                    Pick Background color
+                </button>
+                
+                <button class="jscolor {valueElement:'chosen-value', onFineChange:'setTextColor(this)'}">
+                    Pick text color
+                </button>
+            </div>
+        </header>
+        <div class="twelve columns title">
+            <div class="eight columns">
+                <h2>Comp 1950 WebSite</h2>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="two columns">
+                    <!-- Start Navigation-->
+                    <nav class="menu">
+                        <!--#include file="inc/vertical_nav.inc"-->
+                    </nav>
+                    <!--/Navigation -->
+                </div>
+                <div class="ten columns">
+                    <nav id="navbar">
+                        <!-- Start horizontal navigation -->
+                        <!--#include file="inc/horizontal_nav.inc"-->
+                    </nav>
+                    <article>
+                
+                    </article>
+                </div>
+            </div>
+            <!--/Row -->
+            <footer class="twelve columns">
+                <!--#include file="inc/footer.inc" -->
+            </footer>
+        </div>
+        <!-- =========Container=========== -->
+    </body>
+
+</html>

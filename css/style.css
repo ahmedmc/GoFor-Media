@@ -7,7 +7,8 @@ header {
 	
 .title{
 	padding-left:220px;
-	background-color:pink;
+	background-color:#c3c8d3;
+	
 }
 #date{ padding-left:212px;
 color:#fff;}
@@ -84,7 +85,7 @@ nav a:link.sub, nav a:visited.sub {
 nav a.sub{transition:background 1.3s;}	
 
 nav a:hover.sub	{
-	color: pink;
+	color: #b7b3d2;
 	background-color:#000;
 }
 
@@ -92,11 +93,12 @@ nav a:hover.sub	{
  article{
 		margin: 40px 20px 0 150px;
 		padding:20px;	
-        border-left:1px solid pink;
-		border-right:1px solid pink;
+        border-left:1px solid #b7b3d2;
+		border-right:1px solid #b7b3d2;
 		color:#000;
-		font-size:1.2em;
-		width:95%;
+		font-size:1em;
+		width:90%;
+		
           
         }
          
@@ -109,7 +111,10 @@ h2:hover {
     cursor: pointer;
 }
 
+#tfnewsearch{position:relative;}
+
 /* ----------------- Horizontal Navigation -------------------- */
+
 
 #cssmenu,
 #cssmenu ul,
@@ -121,8 +126,9 @@ h2:hover {
   border: 0;
   list-style: none;
   line-height: 1;
-  display: block;
   position: relative;
+ display: block;
+  
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -142,14 +148,15 @@ h2:hover {
 #cssmenu {
   width: auto;
   border-radius: 5px;
-  font-family: 'Open Sans', Helvetica, sans-serif;
-  background: #9d9d9d;
+font-family: Arial, sans-serif, Helvetica; 
+  padding-left:150px; 
+/* background: #9d9d9d;
   background: -o-linear-gradient(top, #b7b7b7, #898989);
   background: -ms-linear-gradient(top, #b7b7b7, #898989);
   background: -webkit-linear-gradient(top, #b7b7b7, #898989);
   background: -moz-linear-gradient(top, #b7b7b7, #898989);
   background: linear-gradient(to bottom, #b7b7b7, #898989);
-  box-shadow: inset 0 -3px 0 #818181, inset 0 -3px 3px #848484, inset 0 2px 2px #d3d3d3, inset 1px 0 2px #8b8b8b, inset -1px 0 2px #8b8b8b, 0 1px 1px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.06), 0 3px 3px rgba(0, 0, 0, 0.17), 2px 1px 2px rgba(0, 0, 0, 0.05), -2px 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 -3px 0 #818181, inset 0 -3px 3px #848484, inset 0 2px 2px #d3d3d3, inset 1px 0 2px #8b8b8b, inset -1px 0 2px #8b8b8b, 0 1px 1px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.06), 0 3px 3px rgba(0, 0, 0, 0.17), 2px 1px 2px rgba(0, 0, 0, 0.05), -2px 1px 2px rgba(0, 0, 0, 0.05); */
 }
 #cssmenu.align-center > ul {
   font-size: 0;
@@ -172,8 +179,8 @@ h2:hover {
   float: left;
 }
 #cssmenu > ul > li > a {
-  padding: 20px 25px;
-  font-size: 12px;
+ padding: 20px 25px;
+  font-size: 13px;
   color: #000000;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -186,6 +193,7 @@ h2:hover {
   -o-transition: color .2s ease;
   transition: color .2s ease;
 }
+
 #cssmenu > ul > li:hover > a,
 #cssmenu > ul > li > a:hover,
 #cssmenu > ul > li.active > a {
@@ -279,12 +287,12 @@ h2:hover {
 #cssmenu ul ul li a {
   width: 180px;
   padding: 12px 25px;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
-  color: #ffffff;
+ /* text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25); */
+  color: #000;
   text-decoration: none;
-  background: #aeaeae;
+  background: #c3c8d3;
   -webkit-transition: color .2s ease;
   -moz-transition: color .2s ease;
   -ms-transition: color .2s ease;
@@ -343,12 +351,12 @@ h2:hover {
 }
 #cssmenu ul ul > li.has-sub:hover > a:before {
   border-top-color: transparent;
-  border-left-color: #888888;
+  border-left-color: #c3c8d3;
 }
 #cssmenu.align-right ul ul > li.has-sub:hover > a:before {
   border-top-color: transparent;
   border-left-color: transparent;
-  border-right-color: #888888;
+  border-right-color: #c3c8d3;
 }
 #cssmenu.small-screen {
   width: 100%;
@@ -458,6 +466,7 @@ h2:hover {
   -o-transition: all 0.1s ease-out;
   transition: all 0.1s ease-out;
 }
+/* ------
 #cssmenu.small-screen ul .submenu-button.submenu-opened:after,
 #cssmenu.small-screen #menu-button.menu-opened:after {
   background-position: 0 -28px;
@@ -488,7 +497,7 @@ h2:hover {
 #cssmenu.small-screen.select-list {
   padding: 5px;
 }
-
+------*/
 /* ------------------- Search Bar -----------------*/
 form{
 width:500px;
@@ -498,7 +507,7 @@ margin-bottom: 2%;
 .search { 
 padding:6px 15px 6px 30px;
 margin:3px; 
-background: url('./images/search.png') no-repeat 8px 6px; 
+/*background: url('./images/search.png') no-repeat 8px 6px; */
 }
 .rounded { 
 border-radius:15px; 
