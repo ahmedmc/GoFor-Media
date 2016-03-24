@@ -5,7 +5,8 @@
         <title>Final Project</title>
         <link rel="stylesheet" href="css/style.css" />
         <link rel="stylesheet" href="css/grid.css" />
-        <script src="http://code.jquery.com/jquery-1.12.1.min.js"></script>
+        <script src="js/jquery-1.12.1.min.js"></script>
+        <script src="js/jscolor.js"></script>
         <script>
         function menuDrop() { // menuDrop() is a function that applies responsive techniques to the navigation system
             // based on viewport/ window sizes 
@@ -35,7 +36,10 @@
                     .resize(menuDrop);
 
                 menuDrop()
-
+                    // $(function() {
+                    //     $('article').accordion();
+                    //     // $( "#accordion" ).accordion();
+                    //   });
                 var plus = "<img src='img/plus.png' alt='plus' class='more'>";
 
                 //For every h2 element int the conatainer a plus sign is appeneded
@@ -49,7 +53,7 @@
                 // This hides all child elements inside of the central content
                 // container  except h1/h2 and toggles then content between those elements 
                 $('article')
-                    .children(':not(h1,h2, p:nth-child(2), ul:nth-child(4))')
+                    .children(':not(h1,h2, p:nth-child(2), ul:nth-child(3), ul:nth-child(4))')
                     .hide();
                 $('h2')
                     .click(function() {
@@ -87,15 +91,38 @@
             });
 
         </script>
+        <script>
+        function update(jscolor) {
+            // 'jscolor' instance can be used as a string
+            document.getElementById('body')
+                .style.backgroundColor = '#' + jscolor
+        }
+
+        </script>
+        <script>
+        function setTextColor(picker) {
+            document.getElementsByTagName('article')[0].style.color = '#' + picker.toString()
+        }
+
+        </script>
     </head>
 
-    <body>
+    <body id="body" style="text-color:black;">
         <header class="twelve columns">
             <img src="images/burgerm.png" class="menu-toggle" alt="Menu" />
             <div id="date">
                 <!--#config timefmt="%A, %B %e, %Y." -->
                 Welcome! Today is
                 <!--#echo var="DATE_LOCAL" -->
+            </div>
+            <div class="four columns">
+                <button class="jscolor {valueElement:'chosen-value', onFineChange:'update(this)'}">
+                    Pick Background color
+                </button>
+                
+                <button class="jscolor {valueElement:'chosen-value', onFineChange:'setTextColor(this)'}">
+                    Pick text color
+                </button>
             </div>
         </header>
         <div class="twelve columns title">
@@ -237,7 +264,7 @@
                             <li>Not a bad idea to have a "browser" that can be weighted down with tools</li>
                         </ul>
                         <h2 id="standards">Standards</h2>
-                        <p>Letâ€™s take a look at what Stadards are, what the point is and why they can benefit us or cause sadness later.
+                        <p>Let's take a look at what Stadards are, what the point is and why they can benefit us or cause sadness later.
                         </p>
                         <h3 id="definition">Definition</h3>
                         <p><em>Web standards are the formal, non-proprietary standards and other technical specifications that define and describe aspects of the World Wide Web.</em></p>
