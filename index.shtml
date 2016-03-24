@@ -2,7 +2,8 @@
 <html>
 
 <head>
-    <title>Final Project</title>
+    <title>GoFor Media- A group project</title>
+    <meta name="description" content="COMP1950: A site wide redesign focusing on access to information and greater connectivity "
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/grid.css" />
 
@@ -28,7 +29,7 @@
           
            menuDrop()
              
-           var plus = "<img src='img/plus.png' alt='plus' class='more'>";
+           var plus = "<img src='images/plus.png' alt='plus' class='more'>";
             
             //For every h2 element int the conatainer a plus sign is appeneded
            $('article').children('h2').each(function(i, e){
@@ -37,7 +38,7 @@
            
             // This hides all child elements inside of the central content
               // container  except h1/h2 and toggles then content between those elements 
-            $('.ten').children('article').children(':not(h1,h2,arrows)').hide(); 
+            $('.ten').children('article').children(':not(h1,p:first-of-type,h2,plus)').hide(); 
             $('h2').click(function() { 
                $(this).nextUntil('h2').toggle(); 
             }) 
