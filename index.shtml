@@ -105,12 +105,6 @@
             Welcome! Today is
             <!--#echo var="DATE_LOCAL" -->
         </div>
-        <div class="ten columns">
-
-            <nav id="navbar">
-                <!-- Start horizontal navigation -->
-                <!--#include file="inc/horizontal_nav.inc"-->
-            </nav>
 
             <div class="four columns">
                 <button class="jscolor {valueElement:'chosen-value', onFineChange:'update(this)'}">
@@ -126,6 +120,7 @@
                     <input type="submit" value="search" class="tfbutton">
                 </form>
             </div>
+        
     </header>
     <div class="twelve columns title">
         <div class="eight columns">
