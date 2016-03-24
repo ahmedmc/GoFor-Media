@@ -16,14 +16,13 @@
                                 based on viewport/ window sizes */
             if ($(window).width() <= 400){
                 $("#navbar").hide();
-                $(".menu-toggle").show();
+                $(".menu-toggle,.menu").show();
             };
             
             if ($(window).width() > 400){
                 console.log('right');
                 $("#navbar").show();
-                $(".menu-toggle").hide();
-                $(".menu").hide().removeClass('open');
+                $(".menu-toggle,.menu").hide();
             } 
         };
         
