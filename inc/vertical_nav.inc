@@ -1,5 +1,4 @@
-<p class="menu-toggle">Menu</p>
-                    <br/>
+
                 <div class="menu" >   
                     <ul>
                         <li><a href="home.shtml">Home </a></li>
