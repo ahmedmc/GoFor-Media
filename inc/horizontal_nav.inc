@@ -15,17 +15,19 @@
                             <li><a href="#" >Lectures</a>
                                 
 								 <ul>
-                                    <li><a href='week1.html'>Week1</a></li>
-                                    <li><a href='#'>Week2</a></li>
-                                    <li><a href='#'>Week3</a></li>
-                                    <li><a href='#'>Week4</a></li>
-                                    <li><a href='#'>Week5</a></li>
-                                    <li><a href='#'>Week6</a></li>
-                                    <li><a href='#'>Week7</a></li>
-                                   <li><a href='#'>Week8</a></li>
-                                    <li><a href='#'>Week9</a></li>
-                                    <li><a href='#'>Week10</a></li>
-                                   <li><a href='#'>Week11</a></li>
+                                 
+                                    <li><a href='week1.shtml'>Week1</a></li>
+                                    <li><a href='week2.shtml'>Week2</a></li>
+                                    <li><a href='week3.shtml'>Week3</a></li>
+                                    <li><a href='week4.shtml'>Week4</a></li>
+                                    <li><a href='week5.shtml'>Week5</a></li>
+                                    <li><a href='week6.shtml'>Week6</a></li>
+                                    <li><a href='week7.shtml'>Week7</a></li>
+                                    <li><a href='week8.shtml'>Week8</a></li>
+                                    <li><a href='week9.shtml'>Week9</a></li>
+                                    <li><a href='week10.shtml'>Week10</a></li>
+                                    <li><a href='project.shtml'>Project</a></li>
+                                    <li><a href='answers.shtml'>Project Answers</a></li>
                                    
                                </ul>
                             </li>

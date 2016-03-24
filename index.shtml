@@ -2,10 +2,13 @@
 <html>
 
     <head>
-        <title>Final Project</title>
-        <link rel="stylesheet" href="css/style.css" media="screen" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <link rel="stylesheet" href="css/style.css" media="screen" />
         <link rel="stylesheet" href="css/grid.css" media="screen" />
         <link rel="stylesheet" href="css/print.css" media="print" />
+        <title>Final Project</title>
+        
         <script src="js/jquery-1.12.1.min.js"></script>
         <script src="js/jscolor.js"></script>
         <script>
@@ -148,9 +151,9 @@
         </div>
         <div class="container">
             <div class="row">
-                <div class="two columns">
+                <div class= "two columns">
                     <!-- Start Navigation-->
-                    <nav class="menu">
+                    <nav class= "menu">
                         <!--#include file="inc/vertical_nav.inc"-->
                     </nav>
                     <!--/Navigation -->
@@ -535,12 +538,12 @@
                     </article>
                 </div>
             </div>
-            <!--/Row -->
+            <!-- /Row -->
             <footer class="twelve columns">
-                <!--#include file="inc/footer.inc" -->
+                <!-- #include file="inc/footer.inc" -->
             </footer>
         </div>
-        <!-- =========Container=========== -->
+        <!-- ========= Container =========== -->
     </body>
 
 </html>
