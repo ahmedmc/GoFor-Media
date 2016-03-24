@@ -41,7 +41,7 @@
 
                 menuDrop()
 
-                var plus = "<img src='img/plus.png' alt='plus' class='more'>";
+                var plus = "<img src='images/plus.png' alt='plus' class='more'>";
 
                 //For every h2 element int the conatainer a plus sign is appeneded
                 $('article')
