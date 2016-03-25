@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>About &middot; COMP1950</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta charset="utf-8">
+    <meta name="description" content="COMP1950: A site wide redesign focusing on access to information and greater connectivity "
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/grid.css" />
+    <link rel="stylesheet" href="css/print.css" media="print" />
+    <script src="js/jquery-1.12.1.min.js"></script>
+    <script src="js/jscolor.js"></script>
+    <script>
+        function menuDrop(){ // menuDrop() is a function that applies responsive techniques to the navigation system
+                                //based on viewport/ window sizes */
+            if ($(window).width() <= 400){
+                $("#cssmenu, .active").hide();
+                $(".menu-toggle,.menu").show();
+            };
+            
+            if ($(window).width() > 400){
+                $("#cssmenu").show();
+                $(".menu-toggle,.menu").hide();
+            } 
+        };
+        
+        $(window).resize(menuDrop);
+        
+        $(document).ready(function(){
+            
+          
+            
+             menuDrop()
+             
+           var plus = "<img src='images/plus.png' alt='plus' class='more'>";
+            
+           $('article').children('h2').each(function(i, e){
+           $(e).append(plus);
+           });
+           
+            // This hides all child elements inside of the central content
+              // container  except h1/h2 and toggles then content between those elements 
+            $('.ten').children('article').children(':not(h1,p:first-of-type,h2,plus)').hide(); 
+            $('h2').click(function() { 
+               $(this).nextUntil('h2').toggle(); 
+            })
+            
+            
+            $('.menu-toggle').click(function(event){
+                event.preventDefault();
+                
+                // create menu variables
+                var slideoutMenu = $('.menu');
+                var slideoutMenuWidth = slideoutMenu.width();
+                // slide menu
+                if (slideoutMenu.hasClass("open")) {
+                    slideoutMenu.animate({ left: -slideoutMenuWidth }, 200);
+                } else {
+                    slideoutMenu.animate({
+                        left: 0
+                    }, 200); }
+                    
+                    // toggle open class
+                    slideoutMenu.toggleClass("open");
+                });
+        });
+    </script>
+    <script>
+        +        function update(jscolor) {
+ +            // 'jscolor' instance can be used as a string
+ +            document.getElementById('body')
+ +                .style.backgroundColor = '#' + jscolor
+ +        }
+ +
+ +
+    </script>
+
+    <script>
+        function setTextColor(picker) {
+            document.getElementsByTagName('article')[0].style.color = '#' + picker.toString()
+        }
+    </script>
+    <script>
+        $(function() {
+            $("#tfq2b")
+                .click(function() {
+                    if ($("#tfq2b")
+                        .val() == "Search our website") {
+                        $("#tfq2b")
+                            .val("");
+                    }
+                });
+        });
+    </script>
+</head>
+
+<body id="body" style="text-color:black;">
+
+    <header class="twelve columns">
+        <img src="images/burgerm.png" class="menu-toggle" alt="Menu" />
+        <div id="date">
+            <!--#config timefmt="%A, %B %e, %Y." -->
+            Welcome! Today is
+            <!--#echo var="DATE_LOCAL" -->
+        </div>
+
+            <div class="four columns">
+                <button class="jscolor {valueElement:'chosen-value', onFineChange:'update(this)'}">
+                    Pick Background color
+                </button>
+                <button class="jscolor {valueElement:'chosen-value', onFineChange:'setTextColor(this)'}">
+                    Pick text color
+                </button>
+            </div>
+            <div id="search">
+                <form id="tfnewsearch" method="get">
+                    <input type="text" class="tftextinput" name="q" size="21" maxlength="120">
+                    <input type="submit" value="search" class="tfbutton">
+                </form>
+            </div>
+        
+    </header>
+    <div class="twelve columns title">
+        <div class="eight columns">
+            <h2>Comp 1950 WebSite</h2>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="two columns">
+                <!-- Start Navigation-->
+                <nav class="menu">
+                    <!--#include file="inc/vertical_nav.inc"-->
+                </nav>
+                <!--/Navigation -->
+            </div>
+            <div class="ten columns">
+                <nav id="navbar">
+                    <!-- Start horizontal navigation -->
+                    <!--#include file="inc/horizontal_nav.inc"-->
+                </nav>
+                <article>
+                 <h1 class="page-title">About this course</h1>
+					<p>This hands-on course follows on from COMP 1850 Applied Web Development Level 1. Students who already understand HTML and CSS will explore web development in more depth with new topics and techniques. Participants will gain a deeper understanding of the latest technologies including HTML5 and CSS3 for developing web sites and applications. There is a focus on responsive design and mobile presentation through the use of Media Queries. Adding behavior to web sites using JavaScript frameworks such as jQuery is introduced. Labs and exercises focus on industry standard web development methodology. Students gain experience creating templates for content management systems and presentation. Additional topics will include: leveraging Server Side Includes (SSI) for re-usable code, source control for managing your code, and web-based fonts for professional typography. COMP 1950 is a required course for the BCIT Computing Advanced Web Technologies associate certificates in Applied Web Development, AWD and Web and Mobile Application Development, WMA, as well as an elective in the CST Diploma. COMP 1950 and COMP 2015 are also the perquisites for COMP 2052 Android and Mobile Application Development Tools. By the end of this course successful students will be able to build dynamic and semantically marked-up content providing Search Engine Optimized (SEO) pages.</p>
+
+						<h2 id="agenda">Agenda</h2>
+
+						<ul>
+						  <li>about this course (outline, administrivia, assignments, etc)</li>
+						  <li>Learning Outcomes</li>
+						  <li>introductions (me, you)</li>
+						  <li>web space (thenet.ca)</li>
+						  <li>some expectations &amp; reminders</li>
+						  <li>today’s assignment</li>
+						</ul>
+
+						<h2 id="about-this-course">About this course</h2>
+
+						<p>Some information you might like to know:</p>
+
+						<ul>
+						  <li>More theory than in 1850</li>
+						  <li>Still a fair amount of practical experience</li>
+						  <li>Hands on coding and working in teams</li>
+						  <li>Real-life methods taken from developers</li>
+						</ul>
+						
+						<h2 class="learning-outcome">Learning Outcomes</h2>
+			
+							<p>Upon successful completion of this course, the student will be able to:
+							 <ul>
+								  <li>Mark up pages using latest HTML technologies, including HTML5.</li>
+								  <li>Utilize CSS to control page layout and presentation, including CSS3.</li>
+								  <li>Add behaviour to any web page using JavaScript.</li>
+								  <li>Create dynamic content using JavaScript frameworks like jQuery.</li>
+								  <li>Employ Web Standards when building web sites for maximum compatibility.</li>
+								  <li>Understand concepts for Search Engine Optimized content (SEO).</li>
+								  <li>Implement Server Side Includes for efficient web development.</li>
+								  <li>Create template-driven pages for use in Content Management systems.</li>
+								  <li>Understand basic development methodology.</li>
+								  <li>Use media queries to create Responsive designs for mobile and desktop presentation.</li>
+								  <li>Use HTML5 technologies to present rich content such as video, audio and geolocation.</li>
+								  <li>Create professional looking typography using web-based fonts.</li>
+								  <li>Understand source control using GIT.</li>		 
+							 </ul>
+							 </p>
+
+						<h2 id="class-and-homework-exercises">Class and homework exercises</h2>
+
+						<ul>
+						  <li>Assignments/homework: 20%</li>
+						  <li>Quiz/Midterm: 30%</li>
+						  <li>Project: 25%</li>
+						  <li>Final Exam: 25%</li>
+						</ul>
+
+						<h2 id="assignments">Assignments</h2>
+
+						<ul>
+						  <li>Generally given during the lab portion, due the following week</li>
+						  <li>Linked from your COMP 1950 page (more on that later)</li>
+						</ul>
+
+						<h2 id="quizzes--final-exam">Quizzes &amp; final exam</h2>
+
+						<p>All quizzes will feature at least one, and possibly all of the following question types:</p>
+
+						<ul>
+						  <li>fill-in-the-blanks</li>
+						  <li>short answer</li>
+						  <li>matching</li>
+						  <li>code correction</li>
+						  <li>code writing</li>
+						</ul>
+
+						<h2 id="absence">Absence</h2>
+
+						<p>If you are going to miss class for any reason, you absolutely must email me: acalder1@my.bcit.ca</p>
+
+						<p>Include the word <strong>absent</strong> in the subject line somewhere so I can find it, should I need to defend your absence from class to my boss.</p>
+
+						<h2 id="pre-requisite">Pre-requisite</h2>
+						<p>In order to have signed up for this course, you must have either:</p>
+
+						<ul>
+						  <li>completed COMP 1850 with a passing grade, or;</li>
+						  <li>certified that you understand the following concepts</li>
+						  <li>If you are taking this course and do not understand the basics of the following, you should contact Joanne Atha as soon as possible and switch to COMP 1850.</li>
+						</ul>
+
+						<h2 id="here-is-what-i-expect-you-will-know-already">Here is what I expect you will know already:</h2>
+
+						<dl>
+						  <dt>HTML</dt>
+						  <dd>You should know how HTML works and how to markup a basic page.</dd>
+						  <dt>CSS</dt>
+						  <dd>You should have an introductory understanding of what CSS is and how it works. IDs, Classes, Elements. Beyond that we will be learning in this course.</dd>
+						  <dt>FTP</dt>
+						  <dd>You should know how to log into an FTP server and upload/download files. If you don’t know how to do this at all, you will need to learn this immediately.</dd>
+						</dl>
+
+						<h2 id="my-expectation">My expectation</h2>
+
+						<p>I am the instructor for 1950 and, as such, I get to set the rules. Think of me like your boss. Here are the rules I have for this course</p>
+
+						<dl>
+						  <dt>File/Folder Names</dt>
+						  <dd>While it is technically possible, I do not want any capital letters or spaces in your file or folder names. Special Characters (those characters over the numbers on your keyboard) just won’t work.</dd>
+						  <dt>Student Pages</dt>
+						  <dd>The student pages are located at: students.thenet.ca/(student_name) Notice that there is no www at the front. More detail on student pages.</dd>
+						  <dt>Course web site</dt>
+						  <dd>You will set up a course web site for COMP 1950 and will maintain it each week. Homework, in-class assignments and any exercises should be on your course web site. In order to get any feedback, your assignments must be completed on time. Otherwise I simply do not have the time to mark late homewok.</dd>
+						  <dt>Navigation</dt>
+						  <dd>Please try to make things as easy to find as possible</dd>
+						  <dt>A simple reminder</dt>
+						  <dd>This course is about Web Development. This means you should conduct yourself as Web Developers! Think about what you are creating and how it would/could/should be viewed by others.</dd>
+						</dl>
+
+						<div>
+							<h5>Do you except the challenge... <a href="/week01">start with week one</a></h5>
+						</div>
+
+						
+                </article>
+            </div>
+        </div>
+        <!-- /Row -->
+        <footer class="twelve columns">
+            <!--#include file="inc/footer.inc" -->
+        </footer>
+    </div>
+    <!-- ========= Container =========== -->
+</body>
+
+</html>
