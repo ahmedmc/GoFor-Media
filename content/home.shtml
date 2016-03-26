@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        COMP1950 &middot; Web Development Level 2
+    </title>
+
+    <meta charset= "utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="description" content="COMP1950: A site wide redesign focusing on access to information and greater connectivity ">
+
+
+    <!-- <link rel="stylesheet" href="../css/normalize.css" media="all"> -->
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/grid.css" />
+    <link rel="stylesheet" href="../css/print.css" media="print" />
+
+    <script src="../js/jquery-1.12.1.min.js"></script>
+    <script src="../js/jscolor.js"></script>
+    <!-- <script src="js/alljs.js"></script> -->
+    
+    <script>
+       function menuDrop(){ // menuDrop() is a function that applies responsive techniques to the navigation system
+                                //based on viewport/ window sizes */
+            if ($(window).width() <= 400){
+                $("#cssmenu, .active").hide();
+                $(".menu-toggle,.menu").show();
+            };
+            
+            if ($(window).width() > 400){
+                $("#cssmenu").show();
+                $(".menu-toggle,.menu").hide();
+            } 
+        };
+$(window).resize(menuDrop);
+       
+       $(document).ready(function(){
+           
+         
+           
+            menuDrop()
+            
+          var plus = "<img src='../images/plus.png' alt='plus' class='more'>";
+           
+          $('article').children('h2').each(function(i, e){
+          $(e).append(plus);
+          });
+          
+           // This hides all child elements inside of the central content
+             // container  except h1/h2 and toggles then content between those elements 
+           $('.ten').children('article').children(':not(h1,p:first-of-type,h2,plus)').hide(); 
+           $('h2').click(function() { 
+              $(this).nextUntil('h2').toggle(); 
+           })
+
+// This is Leila's script for vertical menu.
+
+        $('.menu-toggle').click(function(event){
+                event.preventDefault();
+                
+                // create menu variables
+                var slideoutMenu = $('.menu');
+                var slideoutMenuWidth = slideoutMenu.width();
+
+                // toggle open class
+                // slideoutMenu.toggleClass("open");
+
+                // slide menu
+                if (slideoutMenu.hasClass("open")) {
+                    slideoutMenu.animate({ left: -slideoutMenuWidth }, 200);
+                } 
+                else {
+                    slideoutMenu.animate({
+                        left: 0
+                    }, 200); }
+                    
+                    // toggle open class
+                    slideoutMenu.toggleClass("open");
+                });
+        });
+            
+    </script>
+
+    <script>
+           function update(jscolor) {
+           // 'jscolor' instance can be used as a string
+            document.getElementById('body')
+                .style.backgroundColor = '#' + jscolor
+        }
+ 
+    </script>
+    
+    <script>
+        function setTextColor(picker) {
+            document.getElementsByTagName('article')[0].style.color = '#' + picker.toString()
+        }
+    </script>
+
+    <script>
+       $(function() {
+           $("#tfq2b")
+               .click(function() {
+                   if ($("#tfq2b")
+                       .val() == "Search our website") {
+                       $("#tfq2b")
+                           .val("");
+                   }
+               });
+       });
+   </script>
+</head>
+
+<body id="body" style="text-color:black;">
+
+    <header class="row">
+        <div id="burger" class="row">
+            <img src="../images/burgerm.png" class="menu-toggle" alt="Menu" />
+        </div> <!-- End div class = row for burgermenu image   -->
+
+        <div class="three columns" id="date">
+            <!--#config timefmt="%A, %B %e, %Y." -->
+            Welcome! Today is
+            <!--#echo var="DATE_LOCAL" -->
+        </div> <!-- End div class = four columns for Welcome/Date SSI -->
+
+        <div class="four columns title">
+            <h2>
+                COMP1950 Web Development Level 2
+            </h2>
+        </div> <!-- End of div class =  four columns title for Main title heading -->
+        
+        <div class="three columns" id="search">
+            <form id="tfnewsearch" method="get">
+                <input type="text" class="tftextinput" name="q" size="21" maxlength="120">
+                <input type="submit" value="search" class="tfbutton">
+            </form>
+        </div> <!-- End of class =  three columns for Search box -->
+
+        <div class="one column">
+            <button class="jscolor {valueElement:'chosen-value', onFineChange:'update(this)'}">
+                bg
+            </button> <!-- Updates background color of document body -->
+           
+            <button class="jscolor {valueElement:'chosen-value', onFineChange:'setTextColor(this)'}">
+                Txt
+            </button> <!-- Updates text color of content text --> 
+
+        </div> <!-- End of class = one column for background and text colour script uttons -->
+        
+    </header> <!-- End header class =  row -->
+
+    
+    <div class="container">
+        <div class="row">
+            <!-- Start Navigation-->
+            
+            <nav class="row menu"> <!-- Start Vertical navigation -->
+
+                <!--#include file="../inc/vertical_nav.inc"-->
+               
+                    <ul>
+                        <li><a href='index.html'>Home</a></li>
+                        <li><a href="#" onclick="$('#submenu1').toggle(1000);">About </a>
+                            <ul id="submenu1" style="display:none;">
+                                <li><a href='about.shtml'>About</a></li>
+                                <li><a href='outline.shtml'>Outline</a></li>
+                                <li><a href='studentpages.shtml'>Student Pages</a></li>
+                                <li><a href='project.shtml'>Project</a></li>
+                                <li><a href='answers.shtml'>Project Answers</a></li>
+                                <li><a href='projectsite.shtml'>Project Site</a></li>
+                                <li><a href='rationale.shtml'>Project Rationale</a></li>
+                                <li><a href='intro.shtml'>Team Go for Media</a></li>                          
+                            </ul>
+                        </li>
+                        <!--Lessons SubMenu -->
+                        <li><a href="#" onclick="$('#submenu2').toggle(1300);">Lectures</a>
+
+                            <ul id="submenu2" style="display:none;">
+                                <a href="week1.shtml" class="sub" target="_blank">Week1</a>
+                                <a href="week2.shtml" class="sub" target="_blank">Week2</a>
+                                <a href="week3.shtml" class="sub" target="_blank">Week3</a>
+                                <a href="week4.shtml" class="sub" target="_blank">Week4</a>
+                                <a href="week5.shtml" class="sub" target="_blank">Week5</a>
+                                <a href="week6.shtml" class="sub" target="_blank">Week6</a>
+                                <a href="week7.shtml" class="sub" target="_blank">Week7</a>
+                                <a href="week8.shtml" class="sub" target="_blank">Week8</a>
+                                <a href="week9.shtml" class="sub" target="_blank">Week9</a>
+                                <a href="week10.shtml" class="sub" target="_blank">Week10</a>
+                                <a href="week11.shtml" class="sub" target="_blank">Week11</a>
+                            </ul>
+                        </li>
+                        
+                        <li><a href='contact.php'>Contact</a></li>
+                        <li><a href='http://goformedia.tumblr.com/'>Blog</a></li>
+
+                    </ul>
+               
+
+            </nav> <!-- End Vertical navigation -->
+            
+            <script>
+                $(document).ready(function() {
+                $("#cssmenu a").each(function() {
+                var linkTitle = $(this).text();
+                $(this).attr('data-title', linkTitle);
+                });
+                });
+            </script>
+            
+            <nav class="row columns" id='cssmenu'> <!-- Start horizontal navigation -->
+                    <!--#include file="../inc/horizontal_nav.inc"-->
+                <ul>
+                    <li class='active'><a href='index.html'>Home</a></li>
+                    <li><a href='#'>About</a>
+                        <ul>
+                         
+                            <li><a href='about.shtml'>About</a></li>
+                            <li><a href='outline.shtml'>Outline</a></li>
+                            <li><a href='studentpages.shtml'>Student Pages</a></li>
+                            <li><a href='project.shtml'>Project</a></li>
+                            <li><a href='answers.shtml'>Project Answers</a></li>
+                            <li><a href='projectsite.shtml'>Project Site</a></li>
+                            <li><a href='rationale.shtml'>Project Rationale</a></li>
+                            <li><a href='intro.shtml'>Team Go for Media</a></li>
+                                                       
+                       </ul>
+                    </li>
+                    <li><a href="#" >Lectures</a>
+                        
+                         <ul>
+                         
+                            <li><a href='week1.shtml'>Week1</a></li>
+                            <li><a href='week2.shtml'>Week2</a></li>
+                            <li><a href='week3.shtml'>Week3</a></li>
+                            <li><a href='positioning.shtml'>Week3 Exercise A</a></li>
+                            <li><a href='printstylesheets.shtml'>Week3 Exercise B</a></li>
+                            <li><a href='week4.shtml'>Week4</a></li>
+                            <li><a href='week5.shtml'>Week5</a></li>
+                            <li><a href='week6.shtml'>Week6</a></li>
+                            <li><a href='week7.shtml'>Week7</a></li>
+                            <li><a href='week8.shtml'>Week8</a></li>
+                            <li><a href='week9.shtml'>Week9</a></li>
+                            <li><a href='week10.shtml'>Week10</a></li>
+                           
+                       </ul>
+                    </li>
+                    <li><a href='contact.php'>Contact</a></li>
+                    <li><a href='http://goformedia.tumblr.com/'>Blog</a></li>
+                   
+                </ul>
+            </nav> <!-- End horizontal navigation -->
+            <!-- End of nav class="row columns" id = cssmenu for Menu bar -->
+               
+                <!-- End Navigation -->
+
+            <div>
+                <article class="ten columns">
+                 <h1 class="page-title">Welcome to the new term for COMP1950||Web Development Level 2 !</h1>
+                    
+                    <p>In COMP 1950, we’re going to take a look at that front-end stack, how you can make those three technologies work together to make great things.</p>
+                    <p>During the first half of the course, we will take a hard look at HTML and CSS and where we are now as web developers. We will move on to template development (the primary task in web development these days) and mix in some JS later on.</p>
+                    <p>Pages on this site will contain news or updates from time to time, so stay tuned!</p>
+                    <p><a href="/about">Learn more about this class</a>.</p>
+                        
+                </article>
+            </div>
+        </div>
+        <!-- /Row -->
+        <footer class="twelve columns">
+            <!--#include file="../inc/footer.inc" -->
+
+            <!--  ======== Footer======== -->
+
+        &copy; Developed and designed by: Gofor Media
+
+        <a href="  https://validator.w3.org/check?uri=referer">Validate Page</a>
+
+        </footer>
+    </div>
+    <!-- ========= Container =========== -->
+</body>
+
+</html>
