@@ -1,4 +1,4 @@
- <script>
+            <script>
                 $(document).ready(function() {
                 $("#cssmenu a").each(function() {
                 var linkTitle = $(this).text();
@@ -8,7 +8,7 @@
             </script>
             
             <ul>
-                    <li class='active'><a href='index.html'>Home</a></li>
+                    <li class='active'><a href='index.shtml'>Home</a></li>
                     <li><a href='#'>About</a>
                         <ul>
                          
