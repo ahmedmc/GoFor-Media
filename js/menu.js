@@ -11,6 +11,7 @@
             } 
         };
 
+// This is Leila's script for vertical menu.
 
         $('.menu-toggle').click(function(event){
                 event.preventDefault();
@@ -30,3 +31,11 @@
                     slideoutMenu.toggleClass("open");
                 });
         });
+
+// This is Horizontal menu clicking script... doesn't do anything
+ $(document).ready(function() {
+                    $("#cssmenu a").each(function() {
+                    var linkTitle = $(this).text();
+                    $(this).attr('data-title', linkTitle);
+                    });
+                    });

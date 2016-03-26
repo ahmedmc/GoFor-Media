@@ -2,139 +2,138 @@
 <html>
 
 <head>
-    <title>COMP1950 &middot; Web Development Level 2</title>
+    <meta charset= "utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-    <meta charset="utf-8">
-    <meta name="description" content="COMP1950: A site wide redesign focusing on access to information and greater connectivity "
-    />
+    <meta name="description" content="COMP1950: A site wide redesign focusing on access to information and greater connectivity ">
+    <meta http-equiv="refresh" content="0; URL='content/index.html'" />
+
+    <title>
+        COMP1950 &middot; Web Development Level 2
+    </title>
+
+    <link rel="stylesheet" href="css/normalize.css" media="all">
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/grid.css" />
-    <link rel="stylesheet" href="css/print.css" media="print" />
-    <script src="js/jquery-1.12.1.min.js"></script>
-    <script src="js/jscolor.js"></script>
-    <script>
-        function menuDrop(){ // menuDrop() is a function that applies responsive techniques to the navigation system
-                                //based on viewport/ window sizes */
-            if ($(window).width() <= 400){
-                $("#cssmenu, .active").hide();
-                $(".menu-toggle,.menu").show();
-            };
-            
-            if ($(window).width() > 400){
-                $("#cssmenu").show();
-                $(".menu-toggle,.menu").hide();
-            } 
-        };
-        
-        
-            
-            $('.menu-toggle').click(function(event){
-                event.preventDefault();
-                
-                // create menu variables
-                var slideoutMenu = $('.menu');
-                var slideoutMenuWidth = slideoutMenu.width();
-                // slide menu
-                if (slideoutMenu.hasClass("open")) {
-                    slideoutMenu.animate({ left: -slideoutMenuWidth }, 200);
-                } else {
-                    slideoutMenu.animate({
-                        left: 0
-                    }, 200); }
-                    
-                    // toggle open class
-                    slideoutMenu.toggleClass("open");
-                });
-        });
-    </script>
-    <script>
-        +        function update(jscolor) {
- +            // 'jscolor' instance can be used as a string
- +            document.getElementById('body')
- +                .style.backgroundColor = '#' + jscolor
- +        }
- +
- +
-    </script>
-
-    <script>
-        function setTextColor(picker) {
-            document.getElementsByTagName('article')[0].style.color = '#' + picker.toString()
-        }
-    </script>
-    <script>
-        $(function() {
-            $("#tfq2b")
-                .click(function() {
-                    if ($("#tfq2b")
-                        .val() == "Search our website") {
-                        $("#tfq2b")
-                            .val("");
-                    }
-                });
-        });
-    </script>
+    <!-- <link rel="stylesheet" href="css/print.css" media="print" /> -->
+    <!-- <script src="js/jquery-1.12.1.min.js"></script> -->
+    <!-- <script src="js/jscolor.js"></script> -->
+    
 </head>
 
 <body id="body" style="text-color:black;">
 
-    <header class="twelve columns">
-        <img src="images/burgerm.png" class="menu-toggle" alt="Menu" />
-        <div id="date">
+    <header class="row">
+        <div class="row">
+            <img src="images/burgerm.png" class="menu-toggle" alt="Menu" />
+        </div> <!-- End div class = row for burgermenu image   -->
+
+        <div class="four columns" id="date">
             <!--#config timefmt="%A, %B %e, %Y." -->
             Welcome! Today is
             <!--#echo var="DATE_LOCAL" -->
-        </div>
+        </div> <!-- End div class = four columns for Welcome/Date SSI -->
 
-            <div class="four columns">
-                <button class="jscolor {valueElement:'chosen-value', onFineChange:'update(this)'}">
-                    Pick Background color
-                </button>
-                <button class="jscolor {valueElement:'chosen-value', onFineChange:'setTextColor(this)'}">
-                    Pick text color
-                </button>
-            </div>
-            <div id="search">
-                <form id="tfnewsearch" method="get">
-                    <input type="text" class="tftextinput" name="q" size="21" maxlength="120">
-                    <input type="submit" value="search" class="tfbutton">
-                </form>
-            </div>
+        <div class="four columns title">
+            <h2>
+                COMP1950 Web Development Level 2
+            </h2>
+        </div> <!-- End of div class =  four columns title for Main title heading -->
         
-    </header>
-    <div class="twelve columns title">
-        <div class="eight columns">
-            <h2>Comp 1950 WebSite</h2>
-        </div>
-    </div>
+        <div class="three columns" id="search">
+            <form id="tfnewsearch" method="get">
+                <input type="text" class="tftextinput" name="q" size="21" maxlength="120">
+                <input type="submit" value="search" class="tfbutton">
+            </form>
+        </div> <!-- End of class =  three columns for Search box -->
+
+        <div class="one column">
+            <button class="jscolor {valueElement:'chosen-value', onFineChange:'update(this)'}">
+                bg
+            </button> <!-- Updates background color of document body -->
+            <button class="jscolor {valueElement:'chosen-value', onFineChange:'setTextColor(this)'}">
+                Txt
+            </button> <!-- Updates text color of content text -->   
+        </div> <!-- End of class = one column for background and text colour script uttons -->
+        
+    </header> <!-- End header class =  row -->
+
+    
     <div class="container">
         <div class="row">
-            <div class="two columns">
-                <!-- Start Navigation-->
-                <nav class="menu">
-                    <!--#include file="inc/vertical_nav.inc"-->
-                </nav>
-                <!--/Navigation -->
-            </div>
-            <div class="ten columns">
-                <nav id="navbar">
-                    <!-- Start horizontal navigation -->
+            <!-- Start Navigation-->
+            
+            <nav class="row menu"> <!-- Start Vertical navigation -->
+                <!--#include file="inc/vertical_nav.inc"-->
+            </nav> <!-- End Vertical navigation -->
+            
+            
+            <nav class="row columns" id="navbar"> <!-- Start horizontal navigation -->
                     <!--#include file="inc/horizontal_nav.inc"-->
-                </nav>
-                <article>
-                 <h1 class="page-title">Welcome to the new term for COMP1950||Web Development Level 2 !</h1>
-					
-					<p>In COMP 1950, we’re going to take a look at that front-end stack, how you can make those three technologies work together to make great things.</p>
-					<p>During the first half of the course, we will take a hard look at HTML and CSS and where we are now as web developers. We will move on to template development (the primary task in web development these days) and mix in some JS later on.</p>
-					<p>Pages on this site will contain news or updates from time to time, so stay tuned!</p>
-					<p><a href="/about">Learn more about this class</a>.</p>
-						
+
+            <div id='cssmenu'>
+                <ul>
+                    <li class='active'><a href='content/index.html'>Home</a></li>
+                    <li><a href='#'>About</a>
+                        <ul>
+                         
+                            <li><a href='content/about.shtml'>About</a></li>
+                            <li><a href='content/outline.shtml'>Outline</a></li>
+                            <li><a href='content/studentpages.shtml'>Student Pages</a></li>
+                            <li><a href='content/project.shtml'>Project</a></li>
+                            <li><a href='content/answers.shtml'>Project Answers</a></li>
+                            <li><a href='content/projectsite.shtml'>Project Site</a></li>
+                            <li><a href='content/rationale.shtml'>Project Rationale</a></li>
+                            <li><a href='content/intro.shtml'>Team Go for Media</a></li>
+                                                   
+                       </ul>
+                    </li>
+                    <li><a href="#" >Lectures</a>
+                        
+                         <ul>
+                         
+                            <li><a href='content/week1.shtml'>Week1</a></li>
+                            <li><a href='content/week2.shtml'>Week2</a></li>
+                            <li><a href='content/week3.shtml'>Week3</a></li>
+                            <li><a href='content/positioning.shtml'>Week3 Exercise A</a></li>
+                            <li><a href='content/printstylesheets.shtml'>Week3 Exercise B</a></li>
+                            <li><a href='content/week4.shtml'>Week4</a></li>
+                            <li><a href='content/week5.shtml'>Week5</a></li>
+                            <li><a href='content/week6.shtml'>Week6</a></li>
+                            <li><a href='content/week7.shtml'>Week7</a></li>
+                            <li><a href='content/week8.shtml'>Week8</a></li>
+                            <li><a href='content/week9.shtml'>Week9</a></li>
+                            <li><a href='content/week10.shtml'>Week10</a></li>
+                           
+                       </ul>
+                    </li>
+                    <li><a href='content/contact.php'>Contact</a></li>
+                    <li><a href='http://goformedia.tumblr.com/'>Blog</a></li>
+                   
+                </ul>
+            </div> <!-- End of div id = cssmenu for Menu bar -->
+
+
+            </nav> <!-- End horizontal navigation -->
+               
+                <!-- End Navigation -->
+
+            <div>
+                <article class="ten columns">
+               <p>Welcome to COMP 1950. Let's go to <a href='content/index.html'>Home</a> page</p>
+                        
                 </article>
             </div>
         </div>
         <!-- /Row -->
         <footer class="twelve columns">
             <!--#include file="inc/footer.inc" -->
+
+            <!--  ======== Footer======== -->
+
+        &copy; Developed and designed by: Gofor Media
+
+        <a href="  https://validator.w3.org/check?uri=referer">Validate Page</a>
+
         </footer>
     </div>
     <!-- ========= Container =========== -->
