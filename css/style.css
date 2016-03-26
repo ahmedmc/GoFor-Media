@@ -1,21 +1,27 @@
 @import url(normalize.css);
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
 header {
-		padding: 10px;
+		padding: .5rem;
 		background: #000;
+		margin: auto;
 	}
 	
 .title{
-	padding-left:220px;
-	background-color:#c3c8d3;
+	padding:.25em;
+	background-color:#D7D7D6;
+	/*c3c8d3;*/
 	
 }
-#date{ padding-left:212px;
+#date{ padding:0.25em;
 color:#fff;}
+/*#burger{
+	display: none;
+}*/
+
 /* --------------------- Navigation*/ 
 
 
-
+/*class menu is for vertical menu only*/
 .menu{
 	position:fixed;
     left: -200px;
@@ -91,10 +97,10 @@ nav a:hover.sub	{
 
 /* ---------------------End Navigation*/ 
  article{
-		margin: 40px 20px 0 150px;
+		margin: 20px 20px 0 30px;
 		padding:20px;	
-        border-left:1px solid #b7b3d2;
-		border-right:1px solid #b7b3d2;
+        /*border-left:1px solid #b7b3d2;*/
+		/*border-right:1px solid #b7b3d2;*/
 		color:#000;
 		font-size:1em;
 		width:90%;
@@ -127,7 +133,7 @@ h2:hover {
   list-style: none;
   line-height: 1;
   position: relative;
- display: block;
+  display: block;
   
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -149,7 +155,7 @@ h2:hover {
   width: auto;
   border-radius: 5px;
 font-family: Arial, sans-serif, Helvetica; 
-  padding-left:150px; 
+  /*psadding-left:150px; */
 /* background: #9d9d9d;
   background: -o-linear-gradient(top, #b7b7b7, #898989);
   background: -ms-linear-gradient(top, #b7b7b7, #898989);
@@ -466,8 +472,8 @@ font-family: Arial, sans-serif, Helvetica;
   -o-transition: all 0.1s ease-out;
   transition: all 0.1s ease-out;
 }
-/* ------
-#cssmenu.small-screen ul .submenu-button.submenu-opened:after,
+ ------
+/*#cssmenu.small-screen ul .submenu-button.submenu-opened:after,
 #cssmenu.small-screen #menu-button.menu-opened:after {
   background-position: 0 -28px;
 }
